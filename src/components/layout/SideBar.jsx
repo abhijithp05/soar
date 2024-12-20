@@ -1,9 +1,9 @@
 import React from 'react';
-import { sideBarConstants } from '../constants/sideBar.const';
-import { StyledLink } from '../styles/StyledLink';
-import { ReactComponent as SoarIcon } from '../assets/icons/soar.svg';
-import Icon from './Icon';
+import { ReactComponent as SoarIcon } from 'assets/icons/soar.svg';
+import { sideBarConstants } from 'constants/sideBar.const';
 import { SideNavContainer } from '../styles/StyledContainers';
+import { StyledLink } from '../styles/StyledLink';
+import Icon from '../ui/Icon';
 
 export const SideBar = () => {
   return (

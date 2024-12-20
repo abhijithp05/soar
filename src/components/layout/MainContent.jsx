@@ -1,8 +1,10 @@
 import React from 'react';
-import { Card } from './Card';
-import BarChart from './BarChart';
-import PieChart from './PieChart';
-import LineGraph from './LineGraph';
+import { transactions } from 'constants/mockData';
+import { CreditCard } from '../app/CreditCard';
+import BarChart from '../charts/BarChart';
+import PieChart from '../charts/PieChart';
+import LineGraph from '../charts/LineGraph';
+import { Card } from '../styles/StyledCard';
 
 export const MainContent = () => {
   return (
@@ -12,16 +14,36 @@ export const MainContent = () => {
         <div className="flex flex-col w-3/4 gap-5">
           <p className="text-left text-xl font-semibold text-black">My Cards</p>
           <div className="flex flex-row gap-3 justify-between">
-            <Card />
-            <Card />
+            <CreditCard />
+            <CreditCard />
           </div>
         </div>
 
-        <div className="bg-white p-6 w-1/4 rounded-lg shadow-md">
-          <h3 className="text-xl font-semibold">Card 3</h3>
-          <p className="mt-2 text-gray-600">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+        <div className="flex flex-col w-1/4 gap-5">
+          <p className="text-left text-xl font-semibold text-black">
+            Recent Transaction
           </p>
+          <div className="flex flex-row gap-3 justify-between h-full">
+            <Card>
+              {transactions.map((transaction) => (
+                <div
+                  key={transaction.id}
+                  className="flex flex-row justify-between p-3"
+                >
+                  <div className="flex flex-col">
+                    <p className="text-sm font-semibold">
+                      {transaction.description}
+                    </p>
+                  </div>
+                  <div className="flex flex-col">
+                    <p className="text-sm font-semibold">
+                      {transaction.amount}
+                    </p>
+                  </div>
+                </div>
+              ))}
+            </Card>
+          </div>
         </div>
       </div>
       <div className="flex flex-row w-full p-3 gap-3">

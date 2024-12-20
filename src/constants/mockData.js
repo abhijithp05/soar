@@ -49,7 +49,7 @@ export const cardDetails = [
   },
 ];
 
-const transactions = [
+export const transactions = [
   {
     id: 1,
     date: '2024-12-15',

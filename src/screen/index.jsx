@@ -1,11 +1,9 @@
 import React from 'react';
-import { SideBar } from '../components/SideBar';
-import { TopNav } from '../components/TopNav';
-import { MainContent } from '../components/MainContent';
+import { SideBar, TopNav, MainContent } from '../components/layout';
 import {
   MainContainer,
   MainContentContainer,
-} from '../styles/StyledContainers';
+} from '../components/styles/StyledContainers';
 
 export const Layout = () => {
   return (

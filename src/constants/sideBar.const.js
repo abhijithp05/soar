@@ -1,13 +1,13 @@
-import { ReactComponent as DashboardIcon } from '../assets/icons/dashboard.svg';
-import { ReactComponent as TransactionIcon } from '../assets/icons/transaction.svg';
-import { ReactComponent as AccountIcon } from '../assets/icons/accounts.svg';
-import { ReactComponent as InvestmentIcon } from '../assets/icons/investment.svg';
-import { ReactComponent as CreditCardIcon } from '../assets/icons/credit-card.svg';
-import { ReactComponent as LoanIcon } from '../assets/icons/loans.svg';
-import { ReactComponent as ServiceIcon } from '../assets/icons/services.svg';
-import { ReactComponent as PriviledgeIcon } from '../assets/icons/priviledge.svg';
-import { ReactComponent as SettingIcon } from '../assets/icons/settings.svg';
-import Icon from '../components/Icon';
+import { ReactComponent as DashboardIcon } from 'assets/icons/dashboard.svg';
+import { ReactComponent as TransactionIcon } from 'assets/icons/transaction.svg';
+import { ReactComponent as AccountIcon } from 'assets/icons/accounts.svg';
+import { ReactComponent as InvestmentIcon } from 'assets/icons/investment.svg';
+import { ReactComponent as CreditCardIcon } from 'assets/icons/credit-card.svg';
+import { ReactComponent as LoanIcon } from 'assets/icons/loans.svg';
+import { ReactComponent as ServiceIcon } from 'assets/icons/services.svg';
+import { ReactComponent as PriviledgeIcon } from 'assets/icons/priviledge.svg';
+import { ReactComponent as SettingIcon } from 'assets/icons/settings.svg';
+import Icon from 'components/ui/Icon';
 
 export const sideBarConstants = {
   dashboard: {

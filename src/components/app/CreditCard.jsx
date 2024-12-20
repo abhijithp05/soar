@@ -1,8 +1,8 @@
-import { ReactComponent as CardChipIcon } from '../assets/icons/card-chip.svg';
-import { ReactComponent as CardSymbolIcon } from '../assets/icons/card-symbol.svg';
-import Icon from './Icon';
+import { ReactComponent as CardChipIcon } from 'assets/icons/card-chip.svg';
+import { ReactComponent as CardSymbolIcon } from 'assets/icons/card-symbol.svg';
+import Icon from 'components/ui/Icon';
 
-export const Card = () => {
+export const CreditCard = () => {
   return (
     <div className="flex flex-col justify-between bg-white w-[350px] h-60 bg-[linear-gradient(107.38deg,_#5B5A6F_2.61%,_#000000_101.2%)] rounded-lg shadow-md">
       <div className="flex flex-row justify-between p-7">

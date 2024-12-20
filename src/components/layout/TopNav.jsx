@@ -1,11 +1,10 @@
 import React from 'react';
-import { ReactComponent as SearchIcon } from '../assets/icons/magnifying-glass.svg';
-import { ReactComponent as NotificationIcon } from '../assets/icons/notification.svg';
-import { ReactComponent as SettingIcon } from '../assets/icons/setting-nav.svg';
-import { ReactComponent as AvatarIcon } from '../assets/icons/avatar.svg';
-import { Input } from './Input';
+import { ReactComponent as SearchIcon } from 'assets/icons/magnifying-glass.svg';
+import { ReactComponent as NotificationIcon } from 'assets/icons/notification.svg';
+import { ReactComponent as SettingIcon } from 'assets/icons/setting-nav.svg';
+import { ReactComponent as AvatarIcon } from 'assets/icons/avatar.svg';
+import { Input, Button } from '../ui';
 import { TopNavContainer } from '../styles/StyledContainers';
-import { Button } from './Button';
 
 export const TopNav = () => {
   return (
