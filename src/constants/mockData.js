@@ -232,3 +232,16 @@ export const quickTransferUsers = [
   //   profileImage: <Icon icon={Person3Icon} />,
   // },
 ];
+
+export const settingsFields = [
+  { label: 'Your Name', field: 'name', type: 'text' },
+  { label: 'User Name', field: 'usernName', type: 'text' },
+  { label: 'Email', field: 'email', type: 'email' },
+  { label: 'Password', field: 'password', type: 'password' },
+  { label: 'Date of Birth', field: 'dob', type: 'date' },
+  { label: 'Present Address', field: 'presentAddress', type: 'text' },
+  { label: 'Permanent Address', field: 'permanentAddress', type: 'text' },
+  { label: 'City', field: 'city', type: 'text' },
+  { label: 'Postal Code', field: 'postal', type: 'text' },
+  { label: 'Country', field: 'country', type: 'text' },
+];

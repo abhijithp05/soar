@@ -10,7 +10,7 @@ import { QuickTransfer } from 'components/app/QuickTransfer';
 
 export const Dashboard = () => {
   return (
-    <main className="flex-1 p-8 mt-16 bg-light-gray h-full lg:ml-64">
+    <main className="flex-1 p-8 mt-16 bg-light-gray h-full lg:ml-64 overflow-y-auto">
       {/* Added mt-16 to avoid content hiding under the top nav */}
       <div className="flex flex-row w-full p-3 gap-3">
         <div className="flex flex-col w-2/3 gap-5">

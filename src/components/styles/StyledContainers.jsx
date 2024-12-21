@@ -1,11 +1,14 @@
 import styled from 'styled-components';
 
 export const MainContainer = styled.div`
-  @apply flex min-h-screen;
+  min-height: 100vh;
 `;
 
 export const MainContentContainer = styled.div`
-  @apply flex-1 flex flex-col;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  overflow-y: hidden;
 `;
 
 export const SideNavContainer = styled.div`
