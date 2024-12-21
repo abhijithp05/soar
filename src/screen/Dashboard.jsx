@@ -1,24 +1,36 @@
 import React from 'react';
-import { quickTransferUsers, transactions } from 'constants/mockData';
-import { CreditCard } from '../components/app/CreditCard';
-import { Transaction } from '../components/app/Transaction';
+import { CreditCards } from '../components/list/CreditCards';
+import { Transactions } from '../components/list/Transactions';
 import BarChart from '../components/charts/BarChart';
 import PieChart from '../components/charts/PieChart';
 import LineGraph from '../components/charts/LineGraph';
 import { Card } from '../components/styles/StyledCard';
 import { QuickTransfer } from 'components/app/QuickTransfer';
+import { useAppContext } from 'context/AppContext';
+import { StyledHiddenScrollContainer } from 'components/styles/StyledHiddenScrollContainer';
+import { StyledLink } from 'components/styles/StyledLink';
 
 export const Dashboard = () => {
+  const {
+    appContext: { cardDetails, quickTransferUsers, transactions },
+  } = useAppContext();
   return (
     <main className="flex-1 p-8 mt-16 bg-light-gray h-full lg:ml-64 overflow-y-auto">
       {/* Added mt-16 to avoid content hiding under the top nav */}
       <div className="flex flex-row w-full p-3 gap-3">
-        <div className="flex flex-col w-2/3 gap-5">
-          <p className="text-left text-xl font-semibold text-black">My Cards</p>
-          <div className="flex flex-row gap-3 justify-between">
-            <CreditCard />
-            <CreditCard />
+        <div className="flex flex-col w-2/3 gap-4">
+          <div className="flex flex-row justify-between">
+            <p className="text-left text-xl font-semibold text-black">
+              My Cards
+            </p>
+            <StyledLink className="text-base font-semibold leading-5 pointer-events-auto font-inter">
+              See All
+            </StyledLink>
           </div>
+
+          <StyledHiddenScrollContainer className="flex flex-row gap-4 justify-between">
+            <CreditCards cardDetails={cardDetails} />
+          </StyledHiddenScrollContainer>
         </div>
 
         <div className="flex flex-col w-1/3 gap-5 h-60">
@@ -27,7 +39,7 @@ export const Dashboard = () => {
           </p>
           <div className="flex flex-row gap-3 justify-between h-full">
             <Card>
-              <Transaction transactions={transactions} />
+              <Transactions transactions={transactions} />
             </Card>
           </div>
         </div>

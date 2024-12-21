@@ -1,3 +1,4 @@
-import { CreditCard } from './credit-card';
+import { CreditCard } from './CreditCard';
+import { Transaction } from './Transaction';
 
-export { CreditCard };
+export { CreditCard, Transaction };

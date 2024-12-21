@@ -68,7 +68,7 @@ const BarChart = () => {
       .attr('rx', 8) // Rounded corners for withdrawal bars
       .attr('ry', 8);
 
-    // Add X Axis
+    // Add X Axis without the domain line
     svg
       .append('g')
       .attr('transform', `translate(0, ${height - margin.bottom})`)
@@ -78,7 +78,7 @@ const BarChart = () => {
       .style('fill', '#718EBF') // Set X axis labels color
       .style('font-size', '12px');
 
-    // Add Y Axis without the line
+    // Add Y Axis without the domain line
     const yAxisGroup = svg
       .append('g')
       .attr('transform', `translate(${margin.left}, 0)`)
@@ -86,12 +86,15 @@ const BarChart = () => {
       .selectAll('text')
       .style('fill', '#718EBF') // Set Y axis labels color
       .style('font-size', '12px')
-      .style('stroke', 'none');
+      .style('stroke', 'none'); // Hide the stroke (main line) for Y-axis
 
-    // Remove the main Y-axis line
+    // Remove the domain line for Y-axis
     yAxisGroup.selectAll('.domain').remove(); // `.domain` targets the main Y-axis line
 
-    // Add Y-Axis Solid Grid Lines (Light Color)
+    // Remove the domain line for X-axis
+    svg.selectAll('.x-axis .domain').remove(); // `.domain` targets the main X-axis line
+
+    // Add Y-Axis Solid Grid Lines (Light Color) with dashed effect
     svg
       .append('g')
       .attr('transform', `translate(${margin.left - 40}, 0)`)
@@ -105,9 +108,29 @@ const BarChart = () => {
       .attr('y2', (d) => yScale(d))
       .attr('stroke', '#E1E1E1') // Light gray color for grid lines
       .attr('stroke-width', 1)
+      .attr('stroke-solid', '4, 4') // Add dashed effect
       .attr('opacity', '20%')
       .lower(); // Lower the grid lines so they appear behind the bars
 
+    // Add X-Axis Solid Grid Lines (Light Color) with dashed effect
+    svg
+      .append('g')
+      .attr('transform', `translate(0, ${margin.top})`)
+      .selectAll('line')
+      .data(xScale.domain())
+      .enter()
+      .append('line')
+      .attr('x1', (d) => xScale(d))
+      .attr('x2', (d) => xScale(d))
+      .attr('y1', margin.top)
+      .attr('y2', height - margin.bottom)
+      .attr('stroke', '#E1E1E1') // Light gray color for grid lines
+      .attr('stroke-width', 1)
+      .attr('stroke-dasharray', '4, 4') // Add dashed effect
+      .attr('opacity', '20%')
+      .lower(); // Lower the grid lines so they appear behind the bars
+
+    // Add Legends
     const legend = svg
       .append('g')
       .attr('transform', `translate(${margin.left + 400}, ${margin.top - 30})`); // Legends above the chart
@@ -115,15 +138,15 @@ const BarChart = () => {
     // Deposit Legend
     legend
       .append('rect')
-      .attr('width', 20)
-      .attr('height', 20)
+      .attr('width', 15)
+      .attr('height', 15)
       .attr('fill', '#396AFF')
       .attr('rx', 10) // Rounded corners for the legend box
       .attr('ry', 10);
     legend
       .append('text')
-      .attr('x', 30)
-      .attr('y', 15)
+      .attr('x', 20)
+      .attr('y', 12)
       .text('Deposits')
       .style('font-size', '14px')
       .style('fill', '#718EBF');
@@ -131,16 +154,16 @@ const BarChart = () => {
     // Withdrawal Legend
     legend
       .append('rect')
-      .attr('width', 20)
-      .attr('height', 20)
+      .attr('width', 15)
+      .attr('height', 15)
       .attr('x', 100)
       .attr('fill', '#232323')
       .attr('rx', 10) // Rounded corners for the legend box
       .attr('ry', 10);
     legend
       .append('text')
-      .attr('x', 130)
-      .attr('y', 15)
+      .attr('x', 120)
+      .attr('y', 12)
       .text('Withdrawals')
       .style('font-size', '14px')
       .style('fill', '#718EBF');

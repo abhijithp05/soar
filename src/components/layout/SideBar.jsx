@@ -20,10 +20,11 @@ export const SideBar = () => {
           {Object.entries(sideBarConstants)?.map(([key, value]) => (
             <li key={key} className="flex flex-row items-center ml-2">
               {value.icon}
-              <Link to={value.path}>
-                <StyledLink className="font-medium leading-5 text-lg">
-                  {value.label}
-                </StyledLink>
+              <Link
+                className="font-medium leading-5 text-lg block px-4 py-2 text-black hover:text-gray-700 rounded"
+                to={value.path}
+              >
+                {value.label}
               </Link>
             </li>
           ))}
