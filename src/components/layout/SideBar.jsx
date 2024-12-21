@@ -1,9 +1,10 @@
 import React from 'react';
 import { ReactComponent as SoarIcon } from 'assets/icons/soar.svg';
-import { sideBarConstants } from 'constants/sideBar.const';
+import { sideBarConstants } from 'constants/sideBar';
 import { SideNavContainer } from '../styles/StyledContainers';
 import { StyledLink } from '../styles/StyledLink';
 import Icon from '../ui/Icon';
+import { Link } from 'react-router-dom';
 
 export const SideBar = () => {
   return (
@@ -19,9 +20,11 @@ export const SideBar = () => {
           {Object.entries(sideBarConstants)?.map(([key, value]) => (
             <li key={key} className="flex flex-row items-center ml-2">
               {value.icon}
-              <StyledLink className="font-medium leading-5 text-lg">
-                {value.label}
-              </StyledLink>
+              <Link to={value.path}>
+                <StyledLink className="font-medium leading-5 text-lg">
+                  {value.label}
+                </StyledLink>
+              </Link>
             </li>
           ))}
         </ul>

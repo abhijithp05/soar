@@ -1,14 +1,14 @@
 import React from 'react';
 import { quickTransferUsers, transactions } from 'constants/mockData';
-import { CreditCard } from '../app/CreditCard';
-import { Transaction } from '../app/Transaction';
-import BarChart from '../charts/BarChart';
-import PieChart from '../charts/PieChart';
-import LineGraph from '../charts/LineGraph';
-import { Card } from '../styles/StyledCard';
+import { CreditCard } from '../components/app/CreditCard';
+import { Transaction } from '../components/app/Transaction';
+import BarChart from '../components/charts/BarChart';
+import PieChart from '../components/charts/PieChart';
+import LineGraph from '../components/charts/LineGraph';
+import { Card } from '../components/styles/StyledCard';
 import { QuickTransfer } from 'components/app/QuickTransfer';
 
-export const MainContent = () => {
+export const Dashboard = () => {
   return (
     <main className="flex-1 p-8 mt-16 bg-light-gray h-full lg:ml-64">
       {/* Added mt-16 to avoid content hiding under the top nav */}

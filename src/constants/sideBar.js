@@ -11,6 +11,7 @@ import Icon from 'components/ui/Icon';
 
 export const sideBarConstants = {
   dashboard: {
+    path: '/dashboard',
     label: 'Dashboard',
     icon: <Icon icon={DashboardIcon} className="w-6 h-6" />,
   },
@@ -40,6 +41,7 @@ export const sideBarConstants = {
     icon: <Icon icon={PriviledgeIcon} className="w-6 h-6" />,
   },
   setting: {
+    path: '/settings',
     label: 'Setting',
     icon: <Icon icon={SettingIcon} className="w-6 h-6" />,
   },

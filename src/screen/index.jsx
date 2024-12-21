@@ -1,9 +1,10 @@
 import React from 'react';
-import { SideBar, TopNav, MainContent } from '../components/layout';
+import { SideBar, TopNav } from '../components/layout';
 import {
   MainContainer,
   MainContentContainer,
 } from '../components/styles/StyledContainers';
+import { Outlet } from 'react-router-dom';
 
 export const Layout = () => {
   return (
@@ -14,7 +15,7 @@ export const Layout = () => {
       {/* Main Content */}
       <MainContentContainer>
         <TopNav />
-        <MainContent />
+        <Outlet />
       </MainContentContainer>
     </MainContainer>
   );
