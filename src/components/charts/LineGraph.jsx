@@ -20,7 +20,7 @@ const LineGraph = () => {
 
   // Set up margins and dimensions for the graph
   const margin = { top: 20, right: 20, bottom: 40, left: 50 };
-  const width = 800 - margin.left - margin.right;
+  const width = 700 - margin.left - margin.right;
   const height = 400 - margin.top - margin.bottom;
 
   // Create a reference to the chart container

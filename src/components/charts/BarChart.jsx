@@ -12,7 +12,7 @@ const BarChart = () => {
   ];
 
   // Set chart dimensions and margins
-  const width = 800;
+  const width = 700;
   const height = 400;
   const margin = { top: 40, right: 40, bottom: 120, left: 50 };
 
@@ -110,7 +110,7 @@ const BarChart = () => {
 
     const legend = svg
       .append('g')
-      .attr('transform', `translate(${margin.left + 500}, ${margin.top - 30})`); // Legends above the chart
+      .attr('transform', `translate(${margin.left + 400}, ${margin.top - 30})`); // Legends above the chart
 
     // Deposit Legend
     legend

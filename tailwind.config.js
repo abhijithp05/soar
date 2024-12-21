@@ -10,6 +10,7 @@ module.exports = {
       },
       colors: {
         'light-gray': '#f5f7fa',
+        'light-gray-100': '#718EBF',
       },
     },
   },
