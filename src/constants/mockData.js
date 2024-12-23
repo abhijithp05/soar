@@ -172,16 +172,16 @@ export const transactions = [
 
 export const transactionTypes = {
   Purchase: {
-    icon: <Icon icon={PaypalIcon} />,
+    icon: <Icon icon={PaypalIcon} width={50} height={50} />,
   },
   Withdrawal: {
-    icon: <Icon icon={WithdrawalIcon} />,
+    icon: <Icon icon={WithdrawalIcon} width={50} height={50} />,
   },
   Deposit: {
-    icon: <Icon icon={DepositIcon} />,
+    icon: <Icon icon={DepositIcon} width={50} height={50} />,
   },
   Subscription: {
-    icon: <Icon icon={WithdrawalIcon} />,
+    icon: <Icon icon={WithdrawalIcon} width={50} height={50} />,
   },
 };
 
@@ -191,57 +191,61 @@ export const quickTransferUsers = [
     accountNumber: 1234567890,
     position: 'CEO',
     bank: 'XYZ Bank',
-    profileImage: <Icon icon={Person1Icon} />,
+    profileImage: <Icon icon={Person1Icon} width={70} height={70} />,
   },
   {
     name: 'Sophia Williams',
     accountNumber: 2345678901,
     position: 'Designer',
     bank: 'ABC Bank',
-    profileImage: <Icon icon={Person2Icon} />,
+    profileImage: <Icon icon={Person2Icon} width={70} height={70} />,
   },
   {
     name: 'Michael Harris',
     accountNumber: 3456789012,
     position: 'Developer',
     bank: 'PQR Bank',
-    profileImage: <Icon icon={Person3Icon} />,
+    profileImage: <Icon icon={Person3Icon} width={70} height={70} />,
   },
-  // {
-  //   name: 'Maria Johnson',
-  //   accountNumber: 4567890123,
-  //   bank: 'LMN Bank',
-  //   profileImage: <Icon icon={Person3Icon} />,
-  // },
-  // {
-  //   name: 'James T. Kirk',
-  //   accountNumber: 5678901234,
-  //   bank: 'JKL Bank',
-  //   profileImage: <Icon icon={Person3Icon} />,
-  // },
-  // {
-  //   name: 'Lina Sanderson',
-  //   accountNumber: 6789012345,
-  //   bank: 'RST Bank',
-  //   profileImage: <Icon icon={Person3Icon} />,
-  // },
-  // {
-  //   name: 'Alexis Mendoza',
-  //   accountNumber: 7890123456,
-  //   bank: 'EFG Bank',
-  //   profileImage: <Icon icon={Person3Icon} />,
-  // },
+  {
+    name: 'Maria Johnson',
+    accountNumber: 4567890123,
+    position: 'Developer',
+    bank: 'LMN Bank',
+    profileImage: <Icon icon={Person3Icon} width={70} height={70} />,
+  },
+  {
+    name: 'James T. Kirk',
+    accountNumber: 5678901234,
+    position: 'Developer',
+    bank: 'JKL Bank',
+    profileImage: <Icon icon={Person3Icon} width={70} height={70} />,
+  },
+  {
+    name: 'Lina Sanderson',
+    accountNumber: 6789012345,
+    position: 'Developer',
+    bank: 'RST Bank',
+    profileImage: <Icon icon={Person3Icon} width={70} height={70} />,
+  },
+  {
+    name: 'Alexis Mendoza',
+    accountNumber: 7890123456,
+    position: 'Developer',
+    bank: 'EFG Bank',
+    profileImage: <Icon icon={Person3Icon} width={70} height={70} />,
+  },
 ];
 
-export const settingsFields = [
-  { label: 'Your Name', field: 'name', type: 'text' },
-  { label: 'User Name', field: 'usernName', type: 'text' },
-  { label: 'Email', field: 'email', type: 'email' },
-  { label: 'Password', field: 'password', type: 'password' },
-  { label: 'Date of Birth', field: 'dob', type: 'date' },
-  { label: 'Present Address', field: 'presentAddress', type: 'text' },
-  { label: 'Permanent Address', field: 'permanentAddress', type: 'text' },
-  { label: 'City', field: 'city', type: 'text' },
-  { label: 'Postal Code', field: 'postal', type: 'text' },
-  { label: 'Country', field: 'country', type: 'text' },
-];
+export const initialSettings = {
+  name: 'Jeeny Doe',
+  usernName: 'Jeenu05',
+  email: 'jennydoe@gmail.com',
+  password: 'jenny12344',
+  dob: '1984-11-30',
+  presentAddress: 'text',
+  permanentAddress: 'text',
+  city: 'San fransisco',
+  postal: 'A24G23',
+  country: 'USA',
+};

@@ -23,7 +23,11 @@ export const CreditCard = ({ cardDetails, isDarkMode }) => {
             {`$ ${cardDetails.balance}`}
           </p>
         </div>
-        <Icon icon={isDarkMode ? CardChipIcon : CardChipBlackIcon} />
+        <Icon
+          icon={isDarkMode ? CardChipIcon : CardChipBlackIcon}
+          width={30}
+          height={30}
+        />
       </div>
       <div className="flex flex-row w-4/5 justify-between p-7 text-left">
         <div className="flex flex-col gap-1">
@@ -59,7 +63,7 @@ export const CreditCard = ({ cardDetails, isDarkMode }) => {
         >
           {formatCardNumber(cardDetails.cardNumber)}
         </div>
-        <Icon icon={CardSymbolIcon} />
+        <Icon icon={CardSymbolIcon} width={44} height={30} />
       </div>
     </div>
   );
