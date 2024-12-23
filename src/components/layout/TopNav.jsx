@@ -19,8 +19,9 @@ const TopNav = () => {
     setApplicationContext({ pageName: 'Setting' });
     navigate('/settings');
   };
+
   return (
-    <TopNavContainer>
+    <TopNavContainer role="banner">
       <div className="flex justify-between items-center">
         <div className="flex items-center text-black-100 text-3xl font-semibold leading-9 font-inter">
           {pageName}
@@ -29,19 +30,25 @@ const TopNav = () => {
           <div className="flex items-center  border-gray-300 bg-light-gray rounded-full p-2 max-w-xs w-full">
             <SearchIcon className="mr-2 ml-2" />
             <Input
-              placeholder="Search for something"
+              type="text"
+              placeholder="Search"
+              aria-label="Search"
               className="w-full bg-transparent outline-none text-gray-700 placeholder-gray-400"
             />
           </div>
 
-          <Button className="p-2 rounded" onClick={handleSettingIconClick}>
-            <SettingIcon />
+          <Button
+            className="p-2 rounded"
+            aria-label="Settings"
+            onClick={handleSettingIconClick}
+          >
+            <SettingIcon alt="Setting Icon" />
           </Button>
-          <Button className="p-2 rounded">
-            <NotificationIcon />
+          <Button className="p-2 rounded" aria-label="Notifications">
+            <NotificationIcon alt="Notification Icon" />
           </Button>
-          <Button className="p-2 rounded">
-            <AvatarIcon />
+          <Button className="p-2 rounded" aria-label="User Profile">
+            <AvatarIcon alt="User Avatar" />
           </Button>
         </div>
       </div>
@@ -49,4 +56,4 @@ const TopNav = () => {
   );
 };
 
-export default React.memo(TopNav);
+export default TopNav;

@@ -31,12 +31,20 @@ const Tabs = () => {
   };
 
   return (
-    <div className="w-full mx-auto h-full">
+    <div
+      className="w-full mx-auto h-full"
+      role="tabpanel"
+      aria-labelledby={`tab-${activeTab}`}
+    >
       {/* Tab navigation */}
-      <div className="flex border-b border-gray-200 h-[10%]">
+      <div className="flex border-b border-gray-200 h-[10%]" role="tablist">
         {tabs.map((tab, index) => (
           <button
             key={index}
+            id={`tab-${index}`}
+            role="tab"
+            aria-selected={activeTab === index}
+            aria-controls={`tabpanel-${index}`}
             onClick={() => setActiveTab(index)}
             disabled={tab.disabled}
             className={`py-2 px-4 -mb-px text-sm font-medium focus:outline-none ${
@@ -51,9 +59,19 @@ const Tabs = () => {
       </div>
 
       {/* Tab content */}
-      <div className="p-2 mt-4 flex flex-col w-[95%] justify-self-center h-[90%]">
+      <div
+        id={`tabpanel-${activeTab}`}
+        role="tabpanel"
+        aria-labelledby={`tab-${activeTab}`}
+        className="p-2 mt-4 flex flex-col w-[95%] justify-self-center h-[90%]"
+      >
         <div className="flex flex-row w-full gap-4 h-[90%]">
-          <Icon icon={AvatarIcon} height="90px" width="90px" />
+          <Icon
+            icon={AvatarIcon}
+            height="90px"
+            width="90px"
+            alt="User Avatar"
+          />
 
           <div className="flex flex-col gap-5 h-60 w-full items-center">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">

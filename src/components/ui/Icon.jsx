@@ -1,3 +1,4 @@
+import { StyledIcon } from 'components/styles/StyledIcon';
 import React from 'react';
 import styled from 'styled-components';
 
@@ -12,22 +13,6 @@ const StyledIconWrapper = styled.div`
     props.color || ''}; // Allow dynamic color using Tailwind-like color
   opacity: ${(props) => (props.disabled ? 0.5 : 1)};
   cursor: ${(props) => (props.disabled ? 'not-allowed' : 'pointer')};
-`;
-
-// Styled component for the SVG itself
-const StyledIcon = styled.svg`
-  width: 100%;
-  height: 100%;
-  transition: fill 0.2s ease;
-
-  // Apply styles to the child <path> element(s)
-  & path {
-    fill: ${(props) => props.fill || ''};
-
-    transition:
-      fill 0.2s ease,
-      stroke 0.2s ease;
-  }
 `;
 
 const Icon = ({

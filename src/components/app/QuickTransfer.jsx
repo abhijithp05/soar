@@ -1,9 +1,9 @@
 import { useState } from 'react';
+import PropTypes from 'prop-types';
 import { Button, Input } from 'components/ui';
 import { ReactComponent as SendIcon } from 'assets/icons/send.svg';
 import { ReactComponent as NextIcon } from 'assets/icons/next.svg';
 import { ReactComponent as PreviousIcon } from 'assets/icons/previous.svg';
-
 import Icon from 'components/ui/Icon';
 
 export const QuickTransfer = ({ userDetails }) => {
@@ -30,13 +30,23 @@ export const QuickTransfer = ({ userDetails }) => {
     <div className="flex w-full flex-col h-full gap-4 p-2 justify-evenly">
       <div className="flex flex-row justify-between">
         {currentIndex > 0 && (
-          <Button onClick={handlePrevious} className="btn btn-prev">
-            <Icon icon={PreviousIcon} width="25px" height="25px" />
+          <Button
+            onClick={handlePrevious}
+            className="btn btn-prev"
+            aria-label="Previous"
+          >
+            <Icon
+              icon={PreviousIcon}
+              width="25px"
+              height="25px"
+              alt="Previous"
+            />
           </Button>
         )}
         {displayedItems?.map((user) => (
           <div
             key={user.accountNumber}
+            role="listitem"
             className="flex flex-col gap-2 w-1/3 items-center"
           >
             {user.profileImage}
@@ -50,8 +60,9 @@ export const QuickTransfer = ({ userDetails }) => {
           onClick={handleNext}
           disabled={currentIndex + 3 >= userDetails.length}
           className="flex justify-center items-center btn btn-next"
+          aria-label="Next"
         >
-          <Icon icon={NextIcon} width="50px" height="50px" />
+          <Icon icon={NextIcon} width="50px" height="50px" alt="Next" />
         </Button>
       </div>
 
@@ -70,11 +81,24 @@ export const QuickTransfer = ({ userDetails }) => {
             className="w-full bg-transparent outline-none text-light-gray-100 placeholder-gray-400"
           />
         </div>
-        <Button className="flex flex-row min-w-24 h-12 justify-around items-center bg-black text-white py-1 px-1 rounded-full hover:bg-gray-800 transition-all absolute right-[-8px] top-1/2 transform -translate-y-1/2 z-10">
+        <Button
+          className="flex flex-row min-w-24 h-12 justify-around items-center bg-black text-white py-1 px-1 rounded-full hover:bg-gray-800 transition-all absolute right-[-8px] top-1/2 transform -translate-y-1/2 z-10"
+          aria-label="Send"
+        >
           Send
           <Icon icon={SendIcon} />
         </Button>
       </div>
     </div>
   );
+};
+
+QuickTransfer.propTypes = {
+  userDetails: PropTypes.arrayOf(
+    PropTypes.shape({
+      accountNumber: PropTypes.string.isRequired,
+      name: PropTypes.string.isRequired,
+      profileImage: PropTypes.string.isRequired,
+    })
+  ).isRequired,
 };
