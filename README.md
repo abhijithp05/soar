@@ -1,10 +1,37 @@
-# Getting Started with Create React App
+# Project Name
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Overview
 
-## Available Scripts
+Project Name is a web application built with React that provides a user-friendly interface for managing tasks and settings. The application features a sidebar for navigation, various charts for data visualization, and customizable user settings.
 
-In the project directory, you can run:
+## Table of Contents
+
+- [Installation](#installation)
+- [Usage](#usage)
+- [Folder Structure](#folder-structure)
+- [Features](#features)
+- [Contributing](#contributing)
+
+## Installation
+
+To get started with the project, follow these steps:
+
+1. Clone the repository:
+
+   ```sh
+   git clone https://github.com/yourusername/project-name.git
+
+   ```
+
+2. Navigate to the project directory:
+
+### `cd project-name`
+
+3. Install the dependencies:
+
+### `npm install`
+
+4. To run the application locally, use the following command
 
 ### `npm start`
 
@@ -16,8 +43,7 @@ You may also see any lint errors in the console.
 
 ### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Launches the test runner in the interactive watch mode.
 
 ### `npm run build`
 
@@ -27,44 +53,87 @@ It correctly bundles React in production mode and optimizes the build for the be
 The build is minified and the filenames include the hashes.\
 Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
 ### Deployment
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+For deployment,
 
-### `npm run build` fails to minify
+1. Dev Env:
+   For DEV deployment, create a Pull request from the feature branch to the development branch and once changes are merged deployment will happen automatically.
+   https://soar-development.vercel.app/
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+2. Prod Env
+
+For deployment, create a Pull request from the development branch to the main branch and once changes are merged deployment will happen automatically.
+https://soar-alpha.vercel.app/
+
+## Folder Structure
+
+.DS*Store
+[.eslintrc.js](http://\_vscodecontentref*/1)
+.gitignore
+[.prettierrc.json](http://_vscodecontentref_/2)
+[package.json](http://_vscodecontentref_/3)
+[postcss.config.js](http://_vscodecontentref_/4)
+public/
+index.html
+manifest.json
+robots.txt
+[README.md](http://_vscodecontentref_/5)
+src/
+assets/
+icons/
+components/
+Charts/
+BarChart.jsx
+LineGraph.jsx
+PieChart.jsx
+Common/
+Button.jsx
+Card.jsx
+Icon.jsx
+Input.jsx
+Layout/
+MainContent.jsx
+SideBar.jsx
+TopNav.jsx
+constants/
+sideBar.const.js
+hooks/
+index.css
+index.js
+layout/
+StyledContainers.js
+StyledLink.js
+reportWebVitals.js
+routes/
+services/
+setupTests.js
+styles/
+StyledContainers.js
+StyledLink.js
+[tailwind.config.js](http://_vscodecontentref_/6)
+
+## Features
+
+1. Sidebar Navigation: Easy navigation through different sections of the application.
+2. Charts: Visual representation of data using bar charts, line graphs, and pie charts.
+3. User Settings: Customizable user settings stored in local storage.
+4. Responsive Design: Optimized for various screen sizes.
+
+## Contributing
+
+Contributions are welcome! Please follow these steps to contribute:
+
+1.Fork the repository. 2. Create a new branch:
+
+### `git checkout -b feature/your-feature-name`
+
+3. Make your changes and commit them:
+
+### `git commit -m 'Add some feature'`
+
+4. Push to the branch:
+
+### `git push origin feature/your-feature-name`
+
+5. Open a pull request.
