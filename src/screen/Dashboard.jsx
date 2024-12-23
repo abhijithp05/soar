@@ -49,7 +49,7 @@ export const Dashboard = () => {
           <p className="text-left text-xl font-semibold text-black">
             Weekly Activity
           </p>
-          <div className=" bg-white rounded-3xl">
+          <div className="flex bg-white rounded-3xl items-center justify-center">
             <BarChart />
           </div>
         </div>
@@ -67,7 +67,7 @@ export const Dashboard = () => {
           <p className="text-left text-xl font-semibold text-black">
             Quick Transfer
           </p>
-          <div className=" bg-white rounded-3xl">
+          <div className="h-full px-2 py-2 bg-white rounded-3xl">
             <QuickTransfer userDetails={quickTransferUsers} />
           </div>
         </div>
