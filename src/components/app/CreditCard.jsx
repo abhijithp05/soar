@@ -6,7 +6,7 @@ import Icon from 'components/ui/Icon';
 import { formatCardNumber } from 'utility/formatter/formatCardNumber';
 import PropTypes from 'prop-types';
 
-export const CreditCard = ({ cardDetails, isDarkMode }) => {
+const CreditCard = ({ cardDetails, isDarkMode }) => {
   return (
     <div
       role="region"
@@ -82,4 +82,4 @@ CreditCard.propTypes = {
   isDarkMode: PropTypes.bool.isRequired,
 };
 
-export default CreditCard;
+export default React.memo(CreditCard);

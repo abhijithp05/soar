@@ -7,7 +7,7 @@ import { settingsFields, tabs } from 'constants/appConstants';
 import { useFormData } from 'hooks/useFormData';
 import useLocalStorage from 'hooks/useLocalStorage';
 
-const Tabs = () => {
+const Tab = () => {
   // State to manage the active tab index
   const [activeTab, setActiveTab] = useState(0);
   const [settingDetail, setSettingDetails] = useLocalStorage(
@@ -110,4 +110,4 @@ const Tabs = () => {
   );
 };
 
-export default React.memo(Tabs);
+export default React.memo(Tab);

@@ -5,12 +5,12 @@ import BarChart from '../components/charts/BarChart';
 import PieChart from '../components/charts/PieChart';
 import LineGraph from '../components/charts/LineGraph';
 import { Card } from '../components/styles/StyledCard';
-import { QuickTransfer } from 'components/app/QuickTransfer';
+import { QuickTransfer } from 'components/app';
 import { useAppContext } from 'context/AppContext';
 import { StyledHiddenScrollContainer } from 'components/styles/StyledHiddenScrollContainer';
 import { StyledLink } from 'components/styles/StyledLink';
 
-export const Dashboard = () => {
+const Dashboard = () => {
   const {
     appContext: { cardDetails, quickTransferUsers, transactions },
   } = useAppContext();
@@ -83,3 +83,5 @@ export const Dashboard = () => {
     </main>
   );
 };
+
+export default Dashboard;

@@ -1,8 +1,9 @@
 import PropTypes from 'prop-types';
 import { transactionTypes } from 'constants/mockData';
 import { formattedDate } from 'utility/formatter/formatDate';
+import React from 'react';
 
-export const Transaction = ({ transaction }) => (
+const Transaction = ({ transaction }) => (
   <div
     key={transaction?.id}
     className="flex flex-row justify-between items-center p-3 gap-2"
@@ -32,6 +33,8 @@ export const Transaction = ({ transaction }) => (
     </div>
   </div>
 );
+
+export default React.memo(Transaction);
 
 Transaction.propTypes = {
   transaction: PropTypes.shape({

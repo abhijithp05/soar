@@ -1,4 +1,4 @@
-import { CreditCard } from 'components/app/CreditCard';
+import { CreditCard } from 'components/app';
 
 export const CreditCards = ({ cardDetails }) =>
   cardDetails?.map((cardDetail, index) => (

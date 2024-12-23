@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { Button, Input } from 'components/ui';
 import { ReactComponent as SendIcon } from 'assets/icons/send.svg';
@@ -6,7 +6,7 @@ import { ReactComponent as NextIcon } from 'assets/icons/next.svg';
 import { ReactComponent as PreviousIcon } from 'assets/icons/previous.svg';
 import Icon from 'components/ui/Icon';
 
-export const QuickTransfer = ({ userDetails }) => {
+const QuickTransfer = ({ userDetails }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
   // Function to handle next button click
@@ -92,6 +92,8 @@ export const QuickTransfer = ({ userDetails }) => {
     </div>
   );
 };
+
+export default React.memo(QuickTransfer);
 
 QuickTransfer.propTypes = {
   userDetails: PropTypes.arrayOf(
