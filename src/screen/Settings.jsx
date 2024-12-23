@@ -1,6 +1,4 @@
 import React from 'react';
-// import { Input, Button } from 'components/ui';
-// import Icon from 'components/ui/Icon';
 import { Card } from 'components/styles/StyledCard';
 import Tabs from 'components/app/Tab';
 

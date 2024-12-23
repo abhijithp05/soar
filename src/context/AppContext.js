@@ -11,12 +11,17 @@ const AppContext = createContext();
 // Step 2: Create the Provider Component
 export const AppContextProvider = ({ children }) => {
   const [appContext, setAppContext] = useState({
+    pageName: 'Overview',
     cardDetails,
     transactions,
     quickTransferUsers,
   });
 
-  const setApplicationContext = (newContext) => setAppContext(newContext);
+  const setApplicationContext = (newContext) => {
+    console.log('newContext', newContext);
+    setAppContext((prev) => ({ ...prev, ...newContext }));
+    console.log('appContext', appContext);
+  };
 
   return (
     <AppContext.Provider value={{ appContext, setApplicationContext }}>
