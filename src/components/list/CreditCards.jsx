@@ -1,6 +1,6 @@
 import { CreditCard } from 'components/app';
 
-export const CreditCards = ({ cardDetails }) =>
+const CreditCards = ({ cardDetails }) =>
   cardDetails?.map((cardDetail, index) => (
     <CreditCard
       role="card-info"
@@ -10,3 +10,5 @@ export const CreditCards = ({ cardDetails }) =>
       isDarkMode={index % 2 === 0}
     />
   ));
+
+export default CreditCards;

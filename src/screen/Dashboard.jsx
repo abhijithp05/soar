@@ -1,14 +1,15 @@
-import React from 'react';
-import { CreditCards } from '../components/list/CreditCards';
+import React, { lazy } from 'react';
 import { Transactions } from '../components/list/Transactions';
-import BarChart from '../components/charts/BarChart';
-import PieChart from '../components/charts/PieChart';
-import LineGraph from '../components/charts/LineGraph';
 import { Card } from '../components/styles/StyledCard';
 import { QuickTransfer } from 'components/app';
 import { useAppContext } from 'context/AppContext';
 import { StyledHiddenScrollContainer } from 'components/styles/StyledHiddenScrollContainer';
 import { StyledLink } from 'components/styles/StyledLink';
+
+const BarChart = lazy(() => import('../components/charts/BarChart'));
+const PieChart = lazy(() => import('../components/charts/PieChart'));
+const LineGraph = lazy(() => import('../components/charts/LineGraph'));
+const CreditCards = lazy(() => import('../components/list/CreditCards'));
 
 const Dashboard = () => {
   const {
