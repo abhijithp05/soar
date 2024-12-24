@@ -1,26 +1,22 @@
 import React, { useState } from 'react';
 import { ReactComponent as AvatarIcon } from 'assets/icons/avatar.svg';
-import { settingsFields } from 'constants/mockData';
+import { initialSettings } from 'constants/mockData';
 import Icon from 'components/ui/Icon';
 import { Button, Input } from 'components/ui';
+import { settingsFields, tabs } from 'constants/appConstants';
+import { useFormData } from 'hooks/useFormData';
+import useLocalStorage from 'hooks/useLocalStorage';
+import { useFormError } from 'hooks/useFormError';
 
-const Tabs = () => {
+const Tab = () => {
   // State to manage the active tab index
   const [activeTab, setActiveTab] = useState(0);
-
-  // Tab titles and content for demonstration
-  const tabs = [
-    { name: 'Edit Profile', disabled: false },
-    { name: 'Preferences', disabled: true },
-    { name: 'Security', disabled: true },
-  ];
-
-  const [formData, setFormData] = useState(
-    settingsFields.reduce((acc, { field }) => {
-      acc[field] = '';
-      return acc;
-    }, {})
+  const [settingDetail, setSettingDetails] = useLocalStorage(
+    'settings',
+    initialSettings
   );
+  const [formData, setFormData] = useFormData(settingsFields, settingDetail);
+  const [error, setError] = useState({});
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -30,24 +26,34 @@ const Tabs = () => {
     }));
   };
 
-  // const handleSubmit = (e) => {
-  //   e.preventDefault();
-  //   console.log(formData);
-  // };
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const error = useFormError(settingsFields, formData);
+    setError(() => error);
+    if (Object.entries(error).length === 0) setSettingDetails(formData);
+  };
 
   return (
-    <div className="w-full mx-auto h-full">
+    <div
+      className="w-full mx-auto h-full"
+      role="tabpanel"
+      aria-labelledby={`tab-${activeTab}`}
+    >
       {/* Tab navigation */}
-      <div className="flex border-b border-gray-200 h-[10%]">
+      <div className="flex border-b border-gray-200 h-[10%]" role="tablist">
         {tabs.map((tab, index) => (
           <button
             key={index}
+            id={`tab-${index}`}
+            role="tab"
+            aria-selected={activeTab === index}
+            aria-controls={`tabpanel-${index}`}
             onClick={() => setActiveTab(index)}
             disabled={tab.disabled}
             className={`py-2 px-4 -mb-px text-sm font-medium focus:outline-none ${
               activeTab === index
-                ? 'border-b-2 border-blue-500 text-blue-600'
-                : 'text-gray-600 hover:text-blue-600'
+                ? 'border-b-2 border-black text-black'
+                : 'text-gray-600 hover:text-black'
             }`}
           >
             {tab.name}
@@ -56,11 +62,21 @@ const Tabs = () => {
       </div>
 
       {/* Tab content */}
-      <div className="p-2 flex flex-col w-full h-[90%]">
-        <div className="flex flex-row w-full gap-4 h-[90%]">
-          <Icon icon={AvatarIcon} />
+      <div
+        id={`tabpanel-${activeTab}`}
+        role="tabpanel"
+        aria-labelledby={`tab-${activeTab}`}
+        className="p-2 mt-4 flex flex-col w-[95%] justify-self-center h-[90%] justify-between gap-4 min-h-[100%]"
+      >
+        <div className="flex flex-col items-center lg:items-start lg:flex-row w-full gap-4 lg:h-[90%]">
+          <Icon
+            icon={AvatarIcon}
+            height="90px"
+            width="90px"
+            alt="User Avatar"
+          />
 
-          <div className="flex flex-col gap-5 h-60 w-full items-end">
+          <div className="flex flex-col gap-5 h-full lg:h-60 w-full items-center">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {settingsFields.map(({ label, field, type }) => (
                 <div key={field} className="flex flex-col items-start">
@@ -76,16 +92,18 @@ const Tabs = () => {
                     name={field}
                     value={formData[field]}
                     onChange={handleChange}
-                    className="px-4 py-2 border h-12 md:w-96 rounded-2xl shadow-sm focus:outline-none focus:light-gray focus:light-gray"
+                    errormessage={error[field]}
+                    className="px-4 py-2 border h-12 md:w-[400px] rounded-2xl shadow-sm focus:outline-none focus:light-gray focus:light-gray"
                   />
                 </div>
               ))}
             </div>
           </div>
         </div>
-        <div className="flex justify-end h-[10%]">
+        <div className="flex justify-center lg:justify-end h-[10%]">
           <Button
             type="submit"
+            onClick={handleSubmit}
             className="px-2 py-2  h-12 w-48 text-sm rounded-2xl font-medium text-white bg-black "
           >
             Save
@@ -96,4 +114,4 @@ const Tabs = () => {
   );
 };
 
-export default React.memo(Tabs);
+export default React.memo(Tab);

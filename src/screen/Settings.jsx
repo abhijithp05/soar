@@ -1,15 +1,15 @@
 import React from 'react';
-// import { Input, Button } from 'components/ui';
-// import Icon from 'components/ui/Icon';
 import { Card } from 'components/styles/StyledCard';
-import Tabs from 'components/app/Tab';
+import Tab from 'components/app/Tab';
 
-export const Settings = () => {
+const Settings = () => {
   return (
-    <main className="flex-1 p-8 mt-16 bg-light-gray h-full lg:ml-64">
-      <Card>
-        <Tabs />
+    <main className="flex-1 p-8 mt-24 lg:mt-16 bg-light-gray h-full lg:ml-64 overflow-y-hidden">
+      <Card className="overflow-y-auto">
+        <Tab />
       </Card>
     </main>
   );
 };
+
+export default React.memo(Settings);

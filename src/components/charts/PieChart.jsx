@@ -5,9 +5,9 @@ const PieChart = () => {
   // Set up the dimensions of the SVG container
   const width = 250;
   const height = 250;
-  const radius = Math.min(width, height) / 2; // Ensure the pie fits inside the SVG
+  const radius = Math.min(width, height) / 2; // Base radius for the chart
 
-  // Define the data
+  // Define the data with values
   const data = [
     { category: 'Entertainment', value: 30, color: '#343C6A' },
     { category: 'Investment', value: 20, color: '#396AFF' },
@@ -40,8 +40,8 @@ const PieChart = () => {
     // Create an arc generator for the slices
     const arc = d3
       .arc()
-      .outerRadius(radius - 10) // Outer radius of the pie chart
-      .innerRadius(0); // Inner radius is 0 for a simple pie chart (no hole in the middle)
+      .innerRadius(0) // Inner radius is 0 for a simple pie chart (no hole in the middle)
+      .outerRadius((d) => radius - 10 + (d.data.value / 100) * 50); // Vary the outer radius based on the value (adding a factor for size variation)
 
     // Create the pie slices
     const slices = svg
@@ -55,37 +55,60 @@ const PieChart = () => {
     slices
       .append('path')
       .attr('d', arc)
-      .attr('fill', (d) => d.data.color);
-
-    // Add white strips (borders) between slices
-    slices
-      .append('path')
-      .attr('d', function (d) {
-        const outerArc = d3.arc().outerRadius(radius).innerRadius(radius); // Make this a thin "border" line
-        return outerArc(d); // Draw the arc at the edge of the pie chart
-      })
-      .attr('fill', '#fff'); // Set the border color to white
+      .attr('fill', (d) => d.data.color) // Set the color of the slice
+      .attr('stroke', '#fff') // Add a white stroke to separate the slices
+      .attr('stroke-width', 4) // Set the thickness of the separation line
+      .attr('filter', 'url(#drop-shadow)'); // Add a drop-shadow filter for 3D effect
 
     // Optionally, add labels and percentage inside each slice
     slices
       .append('text')
       .attr('transform', (d) => {
-        const midAngle = (d.startAngle + d.endAngle) / 2; // Calculate the middle angle of the slice
-        const x = Math.cos(midAngle) * (radius / 2); // X position of the label
-        const y = Math.sin(midAngle) * (radius / 2); // Y position of the label
+        // Calculate the middle angle of the slice
+        const midAngle = (d.startAngle + d.endAngle) / 2;
+        // const fixedRadius = radius - 30;
+        // Position the label in the middle of the slice using the radius
+        const x = Math.cos(midAngle) * ((d.data.value / 100) * (radius - 95)); // X position in the middle
+        const y = Math.sin(midAngle) * ((d.data.value / 100) * (radius - 95)); // Y position in the middle
+
+        // const x = Math.cos(midAngle) * fixedRadius; // X position in the middle
+        // const y = Math.sin(midAngle) * fixedRadius;
+
         return `translate(${x}, ${y})`; // Position the label
       })
-      .attr('text-anchor', 'middle')
+      .attr('text-anchor', 'middle') // Center-align the text
       .attr('fill', '#fff') // White text color
-      .attr('font-size', '14px')
+      .attr('font-size', '12px') // Font size
       .text((d) => {
-        // Add both category name and percentage
+        // Add both category name and percentage inside the slice
         const percentage = d.data.value;
-        return `${d.data.category}\n${percentage}%`; // Display category and percentage
+        return `${percentage}% \n${d.data.category}`; // Display category and percentage
       });
   }, []); // Empty dependency array to ensure the effect runs once on mount
 
-  return <div ref={svgRef} style={{ width: '100%', height: '400px' }}></div>;
+  return (
+    <div
+      ref={svgRef}
+      className="w-full h-[400px] flex justify-center items-center"
+    >
+      <svg>
+        {/* Define drop-shadow filter */}
+        <defs>
+          <filter id="drop-shadow" x="-50%" y="-50%" width="200%" height="200%">
+            <feComponentTransfer in="SourceAlpha">
+              <feFuncA type="table" tableValues="1 0" />
+            </feComponentTransfer>
+            <feGaussianBlur stdDeviation="3" result="blurred" />
+            <feOffset dx="4" dy="4" in="blurred" result="offsetBlur" />
+            <feFlood floodColor="rgba(0,0,0,0.5)" result="color" />
+            <feComposite in2="offsetBlur" operator="in" />
+            <feComposite in2="SourceAlpha" operator="in" />
+            <feComposite operator="over" />
+          </filter>
+        </defs>
+      </svg>
+    </div>
+  );
 };
 
 export default PieChart;

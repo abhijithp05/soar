@@ -5,6 +5,11 @@ export const Transactions = ({ transactions = [] }) => {
     return null;
   }
   return transactions?.map((transaction) => (
-    <Transaction key={transaction.id} transaction={transaction} />
+    <Transaction
+      role="transaction-info"
+      aria-label="transaction"
+      key={transaction.id}
+      transaction={transaction}
+    />
   ));
 };

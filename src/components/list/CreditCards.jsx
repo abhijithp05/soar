@@ -1,10 +1,14 @@
-import { CreditCard } from 'components/app/CreditCard';
+import { CreditCard } from 'components/app';
 
-export const CreditCards = ({ cardDetails }) =>
+const CreditCards = ({ cardDetails }) =>
   cardDetails?.map((cardDetail, index) => (
     <CreditCard
+      role="card-info"
+      aria-label="Credit Cards"
       key={`${cardDetails.cardHolderName}-${index}`}
       cardDetails={cardDetail}
       isDarkMode={index % 2 === 0}
     />
   ));
+
+export default CreditCards;
