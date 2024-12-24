@@ -23,6 +23,10 @@ export const SideNavContainer = styled.div`
   @media (min-width: 1024px) {
     display: block;
   }
+  @media (max-width: 1024px) {
+    margin-top: 110px;
+    width: 100%;
+  }
 `;
 
 export const TopNavContainer = styled.header`
@@ -37,4 +41,8 @@ export const TopNavContainer = styled.header`
   z-index: 10;
   top: 0;
   left: 16rem;
+  @media (max-width: 768px) {
+    width: 100%;
+    left: 0;
+  }
 `;

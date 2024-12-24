@@ -6,20 +6,28 @@ import { useAppContext } from 'context/AppContext';
 import { sideBarConstants } from 'constants/appConstants';
 import { SideNavContainer } from '../styles/StyledContainers';
 import { StyledLink } from '../styles/StyledLink';
+import useWindowWidth from 'hooks/useWindowWidth';
 
 const SideBar = () => {
-  const { setApplicationContext } = useAppContext();
+  const {
+    appContext: { isSideBarVisible },
+    setApplicationContext,
+  } = useAppContext();
+  const windowWidth = useWindowWidth();
   const [selected, setSelected] = useState('Dashboard');
 
   const handleLinkClick = useCallback(
     (value) => {
       setApplicationContext({ pageName: value.title });
       setSelected(value.label);
+      console.log('windowWidth', windowWidth);
+      if (windowWidth < 1024)
+        setApplicationContext({ isSideBarVisible: false });
     },
     [setApplicationContext]
   );
 
-  return (
+  return isSideBarVisible ? (
     <SideNavContainer role="navigation" aria-label="Main Navigation">
       <nav>
         <div className="flex flex-row items-center mb-10">
@@ -50,7 +58,7 @@ const SideBar = () => {
         </ul>
       </nav>
     </SideNavContainer>
-  );
+  ) : null;
 };
 
 export default React.memo(SideBar);

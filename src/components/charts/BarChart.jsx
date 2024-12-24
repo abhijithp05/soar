@@ -175,7 +175,7 @@ const BarChart = () => {
 
   return (
     <div>
-      <svg ref={svgRef}></svg>
+      <svg className="w-full overflow-x-auto" ref={svgRef}></svg>
     </div>
   );
 };

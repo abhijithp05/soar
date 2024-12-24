@@ -66,9 +66,9 @@ const Tab = () => {
         id={`tabpanel-${activeTab}`}
         role="tabpanel"
         aria-labelledby={`tab-${activeTab}`}
-        className="p-2 mt-4 flex flex-col w-[95%] justify-self-center h-[90%]"
+        className="p-2 mt-4 flex flex-col w-[95%] justify-self-center h-[90%] justify-between gap-4 min-h-[100%]"
       >
-        <div className="flex flex-row w-full gap-4 h-[90%]">
+        <div className="flex flex-col items-center lg:items-start lg:flex-row w-full gap-4 lg:h-[90%]">
           <Icon
             icon={AvatarIcon}
             height="90px"
@@ -76,7 +76,7 @@ const Tab = () => {
             alt="User Avatar"
           />
 
-          <div className="flex flex-col gap-5 h-60 w-full items-center">
+          <div className="flex flex-col gap-5 h-full lg:h-60 w-full items-center">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {settingsFields.map(({ label, field, type }) => (
                 <div key={field} className="flex flex-col items-start">
@@ -100,7 +100,7 @@ const Tab = () => {
             </div>
           </div>
         </div>
-        <div className="flex justify-end h-[10%]">
+        <div className="flex justify-center lg:justify-end h-[10%]">
           <Button
             type="submit"
             onClick={handleSubmit}

@@ -16,10 +16,10 @@ const Dashboard = () => {
     appContext: { cardDetails, quickTransferUsers, transactions },
   } = useAppContext();
   return (
-    <main className="flex-1 p-8 mt-16 bg-light-gray h-full lg:ml-64 overflow-y-auto">
+    <main className="flex-1 p-2 sm:gap-6 lg:p-8 mt-16 bg-light-gray h-full sm:flex-col lg:ml-64 overflow-y-auto">
       {/* Added mt-16 to avoid content hiding under the top nav */}
-      <div className="flex flex-row w-full p-3 gap-3">
-        <div className="flex flex-col w-2/3 gap-4">
+      <div className="flex lg:flex-row flex-col w-full p-3 gap-3">
+        <div className="flex flex-col w-full lg:w-2/3 gap-4">
           <div className="flex flex-row justify-between">
             <p className="text-left text-xl font-semibold text-black">
               My Cards
@@ -34,7 +34,7 @@ const Dashboard = () => {
           </StyledHiddenScrollContainer>
         </div>
 
-        <div className="flex flex-col w-1/3 gap-5 h-60">
+        <div className="flex flex-col w-full lg:w-1/3 gap-5 h-60">
           <p className="text-left text-xl font-semibold text-black">
             Recent Transaction
           </p>
@@ -45,8 +45,8 @@ const Dashboard = () => {
           </div>
         </div>
       </div>
-      <div className="flex flex-row w-full p-3 gap-3">
-        <div className="flex flex-col w-2/3 gap-5">
+      <div className="flex flex-col lg:flex-row w-full p-3 gap-3">
+        <div className="flex flex-col mt-14 lg:mt-0 w-full lg:w-2/3 gap-5">
           <p className="text-left text-xl font-semibold text-black">
             Weekly Activity
           </p>
@@ -54,7 +54,7 @@ const Dashboard = () => {
             <BarChart />
           </div>
         </div>
-        <div className="flex flex-col gap-5 w-1/3">
+        <div className="flex flex-col gap-5 w-full lg:w-1/3">
           <p className="text-left text-xl font-semibold text-black">
             Expenses Statitics
           </p>
@@ -63,8 +63,8 @@ const Dashboard = () => {
           </div>
         </div>
       </div>
-      <div className="flex flex-row w-full p-3 gap-3">
-        <div className="flex flex-col w-1/3 gap-5">
+      <div className="flex flex-col lg:flex-row w-full p-3 gap-3">
+        <div className="flex flex-col w-full lg:w-1/3 gap-5">
           <p className="text-left text-xl font-semibold text-black">
             Quick Transfer
           </p>
@@ -72,7 +72,7 @@ const Dashboard = () => {
             <QuickTransfer userDetails={quickTransferUsers} />
           </div>
         </div>
-        <div className="flex flex-col gap-5 w-2/3">
+        <div className="flex flex-col gap-5 w-full lg:w-2/3">
           <p className="text-left text-xl font-semibold text-black">
             Balance History
           </p>
