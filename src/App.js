@@ -1,11 +1,17 @@
 import './App.css';
-import { Layout } from './layout';
+import { BrowserRouter as Router } from 'react-router-dom';
+import { AppRoutes } from './routes';
+import { AppContextProvider } from 'context/AppContext';
 
 function App() {
   return (
-    <div className="App">
-      <Layout />
-    </div>
+    <Router>
+      <div className="App">
+        <AppContextProvider>
+          <AppRoutes />
+        </AppContextProvider>
+      </div>
+    </Router>
   );
 }
 

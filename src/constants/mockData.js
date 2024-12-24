@@ -1,3 +1,11 @@
+import Icon from 'components/ui/Icon';
+import { ReactComponent as DepositIcon } from 'assets/icons/deposit.svg';
+import { ReactComponent as WithdrawalIcon } from 'assets/icons/withdrawal.svg';
+import { ReactComponent as PaypalIcon } from 'assets/icons/paypal.svg';
+import { ReactComponent as Person1Icon } from 'assets/icons/person-1.svg';
+import { ReactComponent as Person2Icon } from 'assets/icons/person-2.svg';
+import { ReactComponent as Person3Icon } from 'assets/icons/person-3.svg';
+
 export const cardDetails = [
   {
     balance: 5756,
@@ -49,7 +57,7 @@ export const cardDetails = [
   },
 ];
 
-const transactions = [
+export const transactions = [
   {
     id: 1,
     date: '2024-12-15',
@@ -160,4 +168,80 @@ const transactions = [
     status: 'Completed',
     balanceAfter: 1419.74,
   },
+];
+
+export const transactionTypes = {
+  Purchase: {
+    icon: <Icon icon={PaypalIcon} />,
+  },
+  Withdrawal: {
+    icon: <Icon icon={WithdrawalIcon} />,
+  },
+  Deposit: {
+    icon: <Icon icon={DepositIcon} />,
+  },
+  Subscription: {
+    icon: <Icon icon={WithdrawalIcon} />,
+  },
+};
+
+export const quickTransferUsers = [
+  {
+    name: 'John Doe',
+    accountNumber: 1234567890,
+    position: 'CEO',
+    bank: 'XYZ Bank',
+    profileImage: <Icon icon={Person1Icon} />,
+  },
+  {
+    name: 'Sophia Williams',
+    accountNumber: 2345678901,
+    position: 'Designer',
+    bank: 'ABC Bank',
+    profileImage: <Icon icon={Person2Icon} />,
+  },
+  {
+    name: 'Michael Harris',
+    accountNumber: 3456789012,
+    position: 'Developer',
+    bank: 'PQR Bank',
+    profileImage: <Icon icon={Person3Icon} />,
+  },
+  // {
+  //   name: 'Maria Johnson',
+  //   accountNumber: 4567890123,
+  //   bank: 'LMN Bank',
+  //   profileImage: <Icon icon={Person3Icon} />,
+  // },
+  // {
+  //   name: 'James T. Kirk',
+  //   accountNumber: 5678901234,
+  //   bank: 'JKL Bank',
+  //   profileImage: <Icon icon={Person3Icon} />,
+  // },
+  // {
+  //   name: 'Lina Sanderson',
+  //   accountNumber: 6789012345,
+  //   bank: 'RST Bank',
+  //   profileImage: <Icon icon={Person3Icon} />,
+  // },
+  // {
+  //   name: 'Alexis Mendoza',
+  //   accountNumber: 7890123456,
+  //   bank: 'EFG Bank',
+  //   profileImage: <Icon icon={Person3Icon} />,
+  // },
+];
+
+export const settingsFields = [
+  { label: 'Your Name', field: 'name', type: 'text' },
+  { label: 'User Name', field: 'usernName', type: 'text' },
+  { label: 'Email', field: 'email', type: 'email' },
+  { label: 'Password', field: 'password', type: 'password' },
+  { label: 'Date of Birth', field: 'dob', type: 'date' },
+  { label: 'Present Address', field: 'presentAddress', type: 'text' },
+  { label: 'Permanent Address', field: 'permanentAddress', type: 'text' },
+  { label: 'City', field: 'city', type: 'text' },
+  { label: 'Postal Code', field: 'postal', type: 'text' },
+  { label: 'Country', field: 'country', type: 'text' },
 ];

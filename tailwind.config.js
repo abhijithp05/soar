@@ -10,6 +10,9 @@ module.exports = {
       },
       colors: {
         'light-gray': '#f5f7fa',
+        'light-gray-100': '#718EBF',
+        'black-100': '#343C6A',
+        success: '#41D4A8',
       },
     },
   },
