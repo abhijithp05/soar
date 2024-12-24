@@ -26,10 +26,10 @@ const PieChart = () => {
     const svg = d3
       .select(svgRef.current) // Select the div (or container) using the ref
       .append('svg')
-      .attr('width', width)
-      .attr('height', height)
+      .attr('width', '100%')
+      .attr('height', '100%')
       .append('g')
-      .attr('transform', `translate(${width / 2}, ${height / 2})`); // Move the pie chart to the center
+      .attr('transform', `translate(${width / 1.4}, ${height / 1.25})`); // Move the pie chart to the center
 
     // Create a pie layout function
     const pie = d3
@@ -66,19 +66,22 @@ const PieChart = () => {
       .attr('transform', (d) => {
         // Calculate the middle angle of the slice
         const midAngle = (d.startAngle + d.endAngle) / 2;
-        // const fixedRadius = radius - 30;
-        // Position the label in the middle of the slice using the radius
-        const x = Math.cos(midAngle) * ((d.data.value / 100) * (radius - 95)); // X position in the middle
-        const y = Math.sin(midAngle) * ((d.data.value / 100) * (radius - 95)); // Y position in the middle
 
-        // const x = Math.cos(midAngle) * fixedRadius; // X position in the middle
-        // const y = Math.sin(midAngle) * fixedRadius;
+        // Increase the label radius to move labels further out
+        const xlabelRadius = radius - 20; // Place labels at a distance from the center of the slice
+        const ylabelRadius = radius - 200;
+        // Calculate x and y positions based on the angle and radius
+        const x = Math.cos(midAngle) * xlabelRadius;
+        const y = Math.sin(midAngle) * ylabelRadius;
 
-        return `translate(${x}, ${y})`; // Position the label
+        return `translate(${x}, ${y})`; // Apply translation to position the label
       })
       .attr('text-anchor', 'middle') // Center-align the text
       .attr('fill', '#fff') // White text color
-      .attr('font-size', '12px') // Font size
+      .attr('font-size', '12px') // Larger font size for visibility
+      .attr('font-weight', 'bold') // Font weight to make it stand out
+      .attr('dy', '.35em') // Vertically center the text
+      .style('pointer-events', 'none') // Prevent the text from interfering with the slices
       .text((d) => {
         // Add both category name and percentage inside the slice
         const percentage = d.data.value;
@@ -91,7 +94,7 @@ const PieChart = () => {
       ref={svgRef}
       className="w-full h-[400px] flex justify-center items-center"
     >
-      <svg>
+      <svg className="h-full w-full">
         {/* Define drop-shadow filter */}
         <defs>
           <filter id="drop-shadow" x="-50%" y="-50%" width="200%" height="200%">
