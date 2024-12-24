@@ -6,7 +6,7 @@ import {
 } from '../components/styles/StyledContainers';
 import { Outlet } from 'react-router-dom';
 
-export const Layout = () => {
+const Layout = () => {
   return (
     <MainContainer>
       {/* Side Navigation */}
@@ -20,3 +20,5 @@ export const Layout = () => {
     </MainContainer>
   );
 };
+
+export default React.memo(Layout);

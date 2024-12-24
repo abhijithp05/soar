@@ -14,7 +14,7 @@ const BarChart = () => {
   // Set chart dimensions and margins
   const width = 700;
   const height = 400;
-  const margin = { top: 40, right: 40, bottom: 120, left: 50 };
+  const margin = { top: 50, right: 40, bottom: 60, left: 50 };
 
   // Create a reference to the chart container (SVG element)
   const svgRef = useRef();
@@ -68,31 +68,35 @@ const BarChart = () => {
       .attr('rx', 8) // Rounded corners for withdrawal bars
       .attr('ry', 8);
 
-    // Add X Axis without the domain line
-    svg
+    // Add X Axis without the domain line and ticks
+    const xAxisGroup = svg
       .append('g')
       .attr('transform', `translate(0, ${height - margin.bottom})`)
-      .call(d3.axisBottom(xScale))
+      .call(d3.axisBottom(xScale).tickSize(0)); // Remove ticks
+
+    // Remove the domain line for X-axis
+    xAxisGroup.selectAll('.domain').remove(); // Remove the main line for the X-axis
+
+    xAxisGroup
       .selectAll('text')
       .style('text-anchor', 'middle')
       .style('fill', '#718EBF') // Set X axis labels color
       .style('font-size', '12px');
 
-    // Add Y Axis without the domain line
+    // Add Y Axis without the domain line and ticks
     const yAxisGroup = svg
       .append('g')
       .attr('transform', `translate(${margin.left}, 0)`)
-      .call(d3.axisLeft(yScale))
+      .call(d3.axisLeft(yScale).tickSize(0)); // Remove ticks
+
+    // Remove the domain line for Y-axis
+    yAxisGroup.selectAll('.domain').remove(); // Remove the main line for the Y-axis
+
+    yAxisGroup
       .selectAll('text')
       .style('fill', '#718EBF') // Set Y axis labels color
       .style('font-size', '12px')
       .style('stroke', 'none'); // Hide the stroke (main line) for Y-axis
-
-    // Remove the domain line for Y-axis
-    yAxisGroup.selectAll('.domain').remove(); // `.domain` targets the main Y-axis line
-
-    // Remove the domain line for X-axis
-    svg.selectAll('.x-axis .domain').remove(); // `.domain` targets the main X-axis line
 
     // Add Y-Axis Solid Grid Lines (Light Color) with dashed effect
     svg
@@ -106,9 +110,9 @@ const BarChart = () => {
       .attr('x2', width - margin.right)
       .attr('y1', (d) => yScale(d))
       .attr('y2', (d) => yScale(d))
-      .attr('stroke', '#E1E1E1') // Light gray color for grid lines
+      .attr('stroke', '#F3F3F5')
       .attr('stroke-width', 1)
-      .attr('stroke-solid', '4, 4') // Add dashed effect
+      .attr('stroke-solid', '4, 4')
       .attr('opacity', '20%')
       .lower(); // Lower the grid lines so they appear behind the bars
 
@@ -124,7 +128,7 @@ const BarChart = () => {
       .attr('x2', (d) => xScale(d))
       .attr('y1', margin.top)
       .attr('y2', height - margin.bottom)
-      .attr('stroke', '#E1E1E1') // Light gray color for grid lines
+      .attr('stroke', '#F3F3F5')
       .attr('stroke-width', 1)
       .attr('stroke-dasharray', '4, 4') // Add dashed effect
       .attr('opacity', '20%')
@@ -171,7 +175,7 @@ const BarChart = () => {
 
   return (
     <div>
-      <svg ref={svgRef}></svg>
+      <svg className="w-full overflow-x-auto" ref={svgRef}></svg>
     </div>
   );
 };
