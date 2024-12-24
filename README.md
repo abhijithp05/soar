@@ -10,6 +10,7 @@ Project Name is a web application built with React that provides a user-friendly
 - [Usage](#usage)
 - [Folder Structure](#folder-structure)
 - [Features](#features)
+- [Branching_Strategy]
 - [Contributing](#contributing)
 
 ## Installation
@@ -119,6 +120,30 @@ StyledLink.js
 2. Charts: Visual representation of data using bar charts, line graphs, and pie charts.
 3. User Settings: Customizable user settings stored in local storage.
 4. Responsive Design: Optimized for various screen sizes.
+
+## Branching Strategy
+
+### Git Flow
+
+Branches in Git Flow:
+master: Contains the production-ready code. Each commit on master represents a stable, deployable state.
+
+develop: This is the integration branch for ongoing work. All features are merged here before being released to production.
+
+feature/\*: Feature branches are used to develop new features or bug fixes. These are created from the develop branch and merged back into develop when complete.
+
+release/_: When develop is ready for a release, a release/_ branch is created to prepare the code for production. This branch allows for last-minute bug fixes, documentation updates, or version number changes.
+
+hotfix/\*: These are emergency fixes made directly to master (or main). After the fix, the changes are merged into both master and develop to ensure consistency.
+
+### Flow Example:
+
+Start with master and develop.
+Create a feature/ branch from develop.
+Merge the feature back into develop.
+When ready for a release, create a release/ branch from develop.
+Merge release/ into both master and develop.
+For urgent fixes, create a hotfix/ branch from master, fix, then merge into both master and develop.
 
 ## Contributing
 
