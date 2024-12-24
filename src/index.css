@@ -1,0 +1,12 @@
+/* src/index.css */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* src/index.css or src/styles.css */
+@import '@fontsource/inter/400.css'; /* Regular */
+@import '@fontsource/inter/600.css'; /* Semi-Bold */
+@import '@fontsource/inter/700.css'; /* Bold */
+
+@import '@fontsource/lato/400.css'; /* Regular */
+@import '@fontsource/lato/700.css'; /* Bold */
