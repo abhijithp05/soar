@@ -75,14 +75,24 @@ export const tabs = [
 ];
 
 export const settingsFields = [
-  { label: 'Your Name', field: 'name', type: 'text' },
-  { label: 'User Name', field: 'usernName', type: 'text' },
-  { label: 'Email', field: 'email', type: 'email' },
-  { label: 'Password', field: 'password', type: 'password' },
-  { label: 'Date of Birth', field: 'dob', type: 'date' },
-  { label: 'Present Address', field: 'presentAddress', type: 'text' },
-  { label: 'Permanent Address', field: 'permanentAddress', type: 'text' },
-  { label: 'City', field: 'city', type: 'text' },
-  { label: 'Postal Code', field: 'postal', type: 'text' },
-  { label: 'Country', field: 'country', type: 'text' },
+  { label: 'Your Name', field: 'name', type: 'text', required: true },
+  { label: 'User Name', field: 'usernName', type: 'text', required: true },
+  { label: 'Email', field: 'email', type: 'email', required: true },
+  { label: 'Password', field: 'password', type: 'password', required: true },
+  { label: 'Date of Birth', field: 'dob', type: 'date', require },
+  {
+    label: 'Present Address',
+    field: 'presentAddress',
+    type: 'text',
+    required: false,
+  },
+  {
+    label: 'Permanent Address',
+    field: 'permanentAddress',
+    type: 'text',
+    required: true,
+  },
+  { label: 'City', field: 'city', type: 'text', required: false },
+  { label: 'Postal Code', field: 'postal', type: 'text', required: true },
+  { label: 'Country', field: 'country', type: 'text', required: true },
 ];

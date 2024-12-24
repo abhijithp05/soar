@@ -1,12 +1,12 @@
 import React from 'react';
 import { Card } from 'components/styles/StyledCard';
-import Tabs from 'components/app/Tab';
+import Tab from 'components/app/Tab';
 
 const Settings = () => {
   return (
     <main className="flex-1 p-8 mt-16 bg-light-gray h-full lg:ml-64">
       <Card>
-        <Tabs />
+        <Tab />
       </Card>
     </main>
   );

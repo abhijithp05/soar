@@ -6,6 +6,7 @@ import { Button, Input } from 'components/ui';
 import { settingsFields, tabs } from 'constants/appConstants';
 import { useFormData } from 'hooks/useFormData';
 import useLocalStorage from 'hooks/useLocalStorage';
+import { useFormError } from 'hooks/useFormError';
 
 const Tab = () => {
   // State to manage the active tab index
@@ -15,7 +16,7 @@ const Tab = () => {
     initialSettings
   );
   const [formData, setFormData] = useFormData(settingsFields, settingDetail);
-  // Tab titles and content for demonstration
+  const [error, setError] = useState({});
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -27,7 +28,9 @@ const Tab = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    setSettingDetails(formData);
+    const error = useFormError(settingsFields, formData);
+    setError(() => error);
+    if (Object.entries(error).length === 0) setSettingDetails(formData);
   };
 
   return (
@@ -89,6 +92,7 @@ const Tab = () => {
                     name={field}
                     value={formData[field]}
                     onChange={handleChange}
+                    errormessage={error[field]}
                     className="px-4 py-2 border h-12 md:w-[400px] rounded-2xl shadow-sm focus:outline-none focus:light-gray focus:light-gray"
                   />
                 </div>
