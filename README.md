@@ -10,7 +10,7 @@ Project Name is a web application built with React that provides a user-friendly
 - [Usage](#usage)
 - [Folder Structure](#folder-structure)
 - [Features](#features)
-- [Branching_Strategy]
+- [BranchingStrategy]
 - [Contributing](#contributing)
 
 ## Installation
@@ -20,7 +20,7 @@ To get started with the project, follow these steps:
 1. Clone the repository:
 
    ```sh
-   git clone https://github.com/yourusername/project-name.git
+   git clone https://github.com/abhijithp05/soar.git
 
    ```
 
@@ -69,7 +69,7 @@ https://soar-alpha.vercel.app/
 
 ## Folder Structure
 
-.DS*Store
+```sh
 [.eslintrc.js](http://\_vscodecontentref*/1)
 .gitignore
 [.prettierrc.json](http://_vscodecontentref_/2)
@@ -113,6 +113,7 @@ styles/
 StyledContainers.js
 StyledLink.js
 [tailwind.config.js](http://_vscodecontentref_/6)
+```
 
 ## Features
 
@@ -126,24 +127,25 @@ StyledLink.js
 ### Git Flow
 
 Branches in Git Flow:
-master: Contains the production-ready code. Each commit on master represents a stable, deployable state.
 
-develop: This is the integration branch for ongoing work. All features are merged here before being released to production.
+1. master: Contains the production-ready code. Each commit on master represents a stable, deployable state.
 
-feature/\*: Feature branches are used to develop new features or bug fixes. These are created from the develop branch and merged back into develop when complete.
+2. develop: This is the integration branch for ongoing work. All features are merged here before being released to production.
 
-release/_: When develop is ready for a release, a release/_ branch is created to prepare the code for production. This branch allows for last-minute bug fixes, documentation updates, or version number changes.
+3.feature/\*: Feature branches are used to develop new features or bug fixes. These are created from the develop branch and merged back into develop when complete.
 
-hotfix/\*: These are emergency fixes made directly to master (or main). After the fix, the changes are merged into both master and develop to ensure consistency.
+4. release/_: When develop is ready for a release, a release/_ branch is created to prepare the code for production. This branch allows for last-minute bug fixes, documentation updates, or version number changes.
+
+5. hotfix/\*: These are emergency fixes made directly to master (or main). After the fix, the changes are merged into both master and develop to ensure consistency.
 
 ### Flow Example:
 
-Start with master and develop.
-Create a feature/ branch from develop.
-Merge the feature back into develop.
-When ready for a release, create a release/ branch from develop.
-Merge release/ into both master and develop.
-For urgent fixes, create a hotfix/ branch from master, fix, then merge into both master and develop.
+1. Start with master and develop.
+2. Create a feature/ branch from develop.
+3. Merge the feature back into develop.
+4. When ready for a release, create a release/ branch from develop.
+5. Merge release/ into both master and develop.
+6. For urgent fixes, create a hotfix/ branch from master, fix, then merge into both master and develop.
 
 ## Contributing
 
