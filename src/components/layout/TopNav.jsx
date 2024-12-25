@@ -82,4 +82,4 @@ const TopNav = () => {
   );
 };
 
-export default TopNav;
+export default React.memo(TopNav);

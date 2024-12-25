@@ -7,7 +7,7 @@ const Transaction = ({ transaction }) => (
   <div
     key={transaction?.id}
     className="flex flex-row justify-between items-center p-3 gap-2"
-    role="listitem"
+    role="option"
     aria-label={`Transaction ${transaction?.description || 'N/A'} on ${formattedDate(transaction?.date)}`}
   >
     <div className="flex flex-row gap-2">
