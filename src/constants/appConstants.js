@@ -79,7 +79,7 @@ export const settingsFields = [
   { label: 'User Name', field: 'usernName', type: 'text', required: true },
   { label: 'Email', field: 'email', type: 'email', required: true },
   { label: 'Password', field: 'password', type: 'password', required: true },
-  { label: 'Date of Birth', field: 'dob', type: 'date', require },
+  { label: 'Date of Birth', field: 'dob', type: 'date', required: true },
   {
     label: 'Present Address',
     field: 'presentAddress',
