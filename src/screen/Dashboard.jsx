@@ -4,7 +4,6 @@ import { Card } from '../components/styles/StyledCard';
 import { QuickTransfer } from 'components/app';
 import { useAppContext } from 'context/AppContext';
 import { StyledHiddenScrollContainer } from 'components/styles/StyledHiddenScrollContainer';
-import { StyledLink } from 'components/styles/StyledLink';
 
 const BarChart = lazy(() => import('../components/charts/BarChart'));
 const PieChart = lazy(() => import('../components/charts/PieChart'));
@@ -24,9 +23,12 @@ const Dashboard = () => {
             <p className="text-left text-xl font-semibold text-black">
               My Cards
             </p>
-            <StyledLink className="text-base font-semibold leading-5 pointer-events-auto font-inter">
+            <p
+              role="button"
+              className="p-2 text-base font-semibold leading-5 text-black hover:text-gray-700 pointer-events-auto font-inter"
+            >
               See All
-            </StyledLink>
+            </p>
           </div>
 
           <StyledHiddenScrollContainer className="flex flex-row gap-4 justify-between">
@@ -39,7 +41,7 @@ const Dashboard = () => {
             Recent Transaction
           </p>
           <div className="flex flex-row gap-3 justify-between h-full">
-            <Card>
+            <Card role="listbox" aria-label="transaction-list">
               <Transactions transactions={transactions} />
             </Card>
           </div>

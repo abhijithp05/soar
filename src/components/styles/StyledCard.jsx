@@ -16,4 +16,6 @@ const StyledDiv = styled.div`
   scrollbar-width: none;
 `;
 
-export const Card = (props) => <StyledDiv>{props.children}</StyledDiv>;
+export const Card = (props) => (
+  <StyledDiv {...props}>{props.children}</StyledDiv>
+);

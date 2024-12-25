@@ -6,7 +6,6 @@ export const Transactions = ({ transactions = [] }) => {
   }
   return transactions?.map((transaction) => (
     <Transaction
-      role="transaction-info"
       aria-label="transaction"
       key={transaction.id}
       transaction={transaction}
