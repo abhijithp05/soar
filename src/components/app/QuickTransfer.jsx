@@ -28,7 +28,7 @@ const QuickTransfer = ({ userDetails }) => {
 
   return (
     <div className="flex w-full flex-col h-full gap-4 p-2 justify-evenly">
-      <div className="flex flex-row justify-between">
+      <div role="listbox" className="flex flex-row justify-between">
         {currentIndex > 0 && (
           <Button
             onClick={handlePrevious}
@@ -46,7 +46,7 @@ const QuickTransfer = ({ userDetails }) => {
         {displayedItems?.map((user) => (
           <div
             key={user.accountNumber}
-            role="listitem"
+            role="option"
             className="flex flex-col gap-2 w-1/3 items-center"
           >
             {user.profileImage}
