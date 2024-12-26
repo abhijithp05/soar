@@ -47,7 +47,7 @@ const TopNav = () => {
             </Button>
           )}
         </div>
-        <div className="flex items-center space-x-4 lg:mr-20">
+        <div className="flex items-center space-x-4 lg:mr-4">
           <div className="flex items-center  border-gray-300 bg-light-gray rounded-full p-2 max-w-xs w-full ">
             <SearchIcon className="mr-2 ml-2 " />
             <Input
