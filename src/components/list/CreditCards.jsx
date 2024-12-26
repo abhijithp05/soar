@@ -1,3 +1,4 @@
+import React from 'react';
 import { CreditCard } from 'components/app';
 
 const CreditCards = ({ cardDetails }) =>
@@ -11,4 +12,4 @@ const CreditCards = ({ cardDetails }) =>
     />
   ));
 
-export default CreditCards;
+export default React.memo(CreditCards);

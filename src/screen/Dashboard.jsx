@@ -20,7 +20,7 @@ const Dashboard = () => {
       <div className="flex lg:flex-row flex-col w-full p-3 gap-3">
         <div className="flex flex-col w-full lg:w-2/3 gap-4">
           <div className="flex flex-row justify-between">
-            <p className="text-left text-xl font-semibold text-black">
+            <p className="font-inter text-left text-xl font-semibold text-black">
               My Cards
             </p>
             <p
@@ -37,7 +37,7 @@ const Dashboard = () => {
         </div>
 
         <div className="flex flex-col w-full lg:w-1/3 gap-5 h-60">
-          <p className="text-left text-xl font-semibold text-black">
+          <p className="font-inter text-left text-xl font-semibold text-black">
             Recent Transaction
           </p>
           <div className="flex flex-row gap-3 justify-between h-full">
@@ -49,7 +49,7 @@ const Dashboard = () => {
       </div>
       <div className="flex flex-col lg:flex-row w-full p-3 gap-3">
         <div className="flex flex-col mt-14 lg:mt-0 w-full lg:w-2/3 gap-5">
-          <p className="text-left text-xl font-semibold text-black">
+          <p className="font-inter text-left text-xl font-semibold text-black">
             Weekly Activity
           </p>
           <div className="flex bg-white rounded-3xl items-center justify-center">
@@ -57,7 +57,7 @@ const Dashboard = () => {
           </div>
         </div>
         <div className="flex flex-col gap-5 w-full lg:w-1/3">
-          <p className="text-left text-xl font-semibold text-black">
+          <p className="font-inter text-left text-xl font-semibold text-black">
             Expenses Statitics
           </p>
           <div className=" bg-white rounded-3xl">
@@ -67,7 +67,7 @@ const Dashboard = () => {
       </div>
       <div className="flex flex-col lg:flex-row w-full p-3 gap-3">
         <div className="flex flex-col w-full lg:w-1/3 gap-5">
-          <p className="text-left text-xl font-semibold text-black">
+          <p className="font-inter text-left text-xl font-semibold text-black">
             Quick Transfer
           </p>
           <div className="h-full px-2 py-2 bg-white rounded-3xl">
@@ -75,7 +75,7 @@ const Dashboard = () => {
           </div>
         </div>
         <div className="flex flex-col gap-5 w-full lg:w-2/3">
-          <p className="text-left text-xl font-semibold text-black">
+          <p className="font-inter text-left text-xl font-semibold text-black">
             Balance History
           </p>
           <div className=" bg-white rounded-3xl">
