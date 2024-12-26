@@ -138,10 +138,12 @@ const LineGraph = () => {
   }, [data]); // The effect will run once when the component mounts
 
   return (
-    <div
-      ref={svgRef}
-      className="flex justify-center items-center w-full h-80"
-    ></div>
+    <div className="overflow-x-auto flex">
+      <div
+        className={`flex justify-center items-center w-[${width}px] h-80`}
+        ref={svgRef}
+      ></div>
+    </div>
   );
 };
 
