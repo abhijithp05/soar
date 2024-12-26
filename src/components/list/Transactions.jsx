@@ -1,6 +1,7 @@
+import React from 'react';
 import { Transaction } from 'components/app';
 
-export const Transactions = ({ transactions = [] }) => {
+const Transactions = ({ transactions = [] }) => {
   if (transactions.length === 0) {
     return null;
   }
@@ -12,3 +13,5 @@ export const Transactions = ({ transactions = [] }) => {
     />
   ));
 };
+
+export default React.memo(Transactions);
