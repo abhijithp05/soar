@@ -1,5 +1,5 @@
 import React, { lazy } from 'react';
-import { Transactions } from '../components/list/Transactions';
+import Transactions from '../components/list/Transactions';
 import { Card } from '../components/styles/StyledCard';
 import { QuickTransfer } from 'components/app';
 import { useAppContext } from 'context/AppContext';
