@@ -28,10 +28,15 @@ const QuickTransfer = ({ userDetails }) => {
 
   return (
     <div className="flex w-full flex-col h-full gap-4 p-2 justify-evenly">
-      <div role="listbox" className="flex flex-row justify-between">
+      <div
+        role="listbox"
+        className="flex flex-row justify-between"
+        aria-label="Select a user for quick transfer"
+      >
         {currentIndex > 0 && (
           <Button
             onClick={handlePrevious}
+            role="option"
             className="btn btn-prev"
             aria-label="Previous"
           >
@@ -58,6 +63,7 @@ const QuickTransfer = ({ userDetails }) => {
         ))}
         <Button
           onClick={handleNext}
+          role="option"
           disabled={currentIndex + 3 >= userDetails.length}
           className="flex justify-center items-center btn btn-next"
           aria-label="Next"
@@ -79,6 +85,7 @@ const QuickTransfer = ({ userDetails }) => {
           <Input
             type="number"
             className="w-full bg-transparent outline-none text-light-gray-100 placeholder-gray-400"
+            aria-label="Enter Amount"
           />
         </div>
         <Button

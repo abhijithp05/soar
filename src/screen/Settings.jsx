@@ -1,6 +1,6 @@
 import React from 'react';
 import { Card } from 'components/styles/StyledCard';
-import Tab from 'components/app/Tab';
+const Tab = React.lazy(() => import('components/app/Tab'));
 
 const Settings = () => {
   return (
