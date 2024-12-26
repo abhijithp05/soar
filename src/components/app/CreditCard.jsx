@@ -16,7 +16,7 @@ const CreditCard = ({ cardDetails, isDarkMode }) => {
       <div className="flex flex-row justify-between p-7">
         <div className="flex flex-col text-left">
           <h5
-            className={`${isDarkMode ? 'text-white' : 'text-black-100'} text-xs font-normal leading-3 opacity-70`}
+            className={`${isDarkMode ? 'text-white' : 'text-black-100'} text-xs font-normal leading-3 opacity-80`}
           >
             Balance
           </h5>
@@ -35,7 +35,7 @@ const CreditCard = ({ cardDetails, isDarkMode }) => {
       <div className="flex flex-row w-4/5 justify-between p-7 text-left">
         <div className="flex flex-col gap-1">
           <h5
-            className={`${isDarkMode ? 'text-white' : 'text-black-100'} text-xs font-normal leading-3 font-lato opacity-70`}
+            className={`${isDarkMode ? 'text-white' : 'text-black-100'} text-xs font-normal leading-3 font-lato opacity-80`}
           >
             CARD HOLDER
           </h5>
@@ -47,7 +47,7 @@ const CreditCard = ({ cardDetails, isDarkMode }) => {
         </div>
         <div className="flex flex-col gap-1">
           <h5
-            className={`${isDarkMode ? 'text-white' : 'text-black-100'} text-xs font-normal leading-3 font-lato opacity-70`}
+            className={`${isDarkMode ? 'text-white' : 'text-black-100'} text-xs font-normal leading-3 font-lato opacity-80`}
           >
             VALID THRU
           </h5>
