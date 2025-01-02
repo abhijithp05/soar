@@ -1,5 +1,6 @@
 import React, { useEffect, useRef } from 'react';
-import * as d3 from 'd3';
+import { select } from 'd3-selection';
+import { pie, arc } from 'd3-shape';
 
 const PieChart = () => {
   // Set up the dimensions of the SVG container
@@ -20,11 +21,10 @@ const PieChart = () => {
 
   useEffect(() => {
     // Cleanup previous SVG (remove any existing chart)
-    d3.select(svgRef.current).select('svg').remove();
+    select(svgRef.current).select('svg').remove();
 
     // Create the SVG element and attach it to the ref container
-    const svg = d3
-      .select(svgRef.current) // Select the div (or container) using the ref
+    const svg = select(svgRef.current) // Select the div (or container) using the ref
       .append('svg')
       .attr('width', '100%')
       .attr('height', '100%')
@@ -32,21 +32,19 @@ const PieChart = () => {
       .attr('transform', `translate(${width / 1.4}, ${height / 1.25})`); // Move the pie chart to the center
 
     // Create a pie layout function
-    const pie = d3
-      .pie()
+    const pieLayout = pie()
       .value((d) => d.value) // Determine the value for each slice
       .sort(null); // Disable sorting of slices
 
     // Create an arc generator for the slices
-    const arc = d3
-      .arc()
+    const arcGenerator = arc()
       .innerRadius(0) // Inner radius is 0 for a simple pie chart (no hole in the middle)
       .outerRadius((d) => radius - 10 + (d.data.value / 100) * 50); // Vary the outer radius based on the value (adding a factor for size variation)
 
     // Create the pie slices
     const slices = svg
       .selectAll('.slice')
-      .data(pie(data)) // Calculate the pie slices based on the data
+      .data(pieLayout(data)) // Calculate the pie slices based on the data
       .enter()
       .append('g')
       .attr('class', 'slice');
@@ -54,7 +52,7 @@ const PieChart = () => {
     // Append each slice (path element) and set the color based on the data
     slices
       .append('path')
-      .attr('d', arc)
+      .attr('d', arcGenerator)
       .attr('fill', (d) => d.data.color) // Set the color of the slice
       .attr('stroke', '#fff') // Add a white stroke to separate the slices
       .attr('stroke-width', 4) // Set the thickness of the separation line
