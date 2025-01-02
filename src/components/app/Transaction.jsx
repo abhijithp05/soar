@@ -1,7 +1,7 @@
+import React from 'react';
 import PropTypes from 'prop-types';
 import { transactionTypes } from 'constants/mockData';
 import { formattedDate } from 'utility/formatter/formatDate';
-import React from 'react';
 
 const Transaction = ({ transaction }) => (
   <div

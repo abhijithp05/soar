@@ -1,5 +1,10 @@
 import React, { useRef, useEffect } from 'react';
-import * as d3 from 'd3';
+// Optimized imports from d3
+import { select } from 'd3-selection';
+import { scaleBand, scaleLinear } from 'd3-scale';
+import { axisBottom, axisLeft } from 'd3-axis';
+import { line, curveCatmullRom } from 'd3-shape';
+import { max } from 'd3-array';
 
 const LineGraph = () => {
   // Sample data (monthly balance)
@@ -27,31 +32,27 @@ const LineGraph = () => {
   const svgRef = useRef();
 
   useEffect(() => {
-    d3.select(svgRef.current).select('svg').remove();
+    select(svgRef.current).select('svg').remove(); // Remove previous SVG if any
 
     // Set up scales for X and Y axes
-    const xScale = d3
-      .scaleBand()
+    const xScale = scaleBand()
       .domain(data.map((d) => d.month)) // Set the domain based on months
       .range([0, width])
       .padding(0.1); // Add padding between bars
 
-    const yScale = d3
-      .scaleLinear()
-      .domain([0, d3.max(data, (d) => d.balance) + 1000]) // Set the domain based on balance values
+    const yScale = scaleLinear()
+      .domain([0, max(data, (d) => d.balance) + 1000]) // Set the domain based on balance values
       .nice()
       .range([height, 0]); // Reverse the Y axis so 0 is at the bottom
 
     // Create a line generator function with a smooth curve
-    const line = d3
-      .line()
+    const lineGenerator = line()
       .x((d) => xScale(d.month) + xScale.bandwidth() / 2) // Center the line on the X-axis
       .y((d) => yScale(d.balance)) // Set the Y position based on balance
-      .curve(d3.curveCatmullRom.alpha(0.5)); // Apply a smooth curve (wave effect)
+      .curve(curveCatmullRom.alpha(0.5)); // Apply a smooth curve (wave effect)
 
     // Select the SVG element and set up the container group
-    const svg = d3
-      .select(svgRef.current) // Select the div using the ref
+    const svg = select(svgRef.current)
       .append('svg')
       .attr('width', width + margin.left + margin.right)
       .attr('height', height + margin.top + margin.bottom)
@@ -97,7 +98,7 @@ const LineGraph = () => {
       .append('path')
       .data([data])
       .attr('class', 'line')
-      .attr('d', line)
+      .attr('d', lineGenerator)
       .attr('fill', 'none')
       .attr('stroke', '#1814F3') // Line color (border)
       .attr('stroke-width', 3); // Line thickness
@@ -106,7 +107,7 @@ const LineGraph = () => {
     const xAxisGroup = svg
       .append('g')
       .attr('transform', `translate(0, ${height})`)
-      .call(d3.axisBottom(xScale).tickSize(6)); // Add ticks with size
+      .call(axisBottom(xScale).tickSize(6)); // Add ticks with size
 
     // Remove the main domain line from X-axis
     xAxisGroup.selectAll('.domain').remove();
@@ -121,7 +122,7 @@ const LineGraph = () => {
       .style('stroke', '#718EBF') // Set color for tick lines
       .style('stroke-width', '2px'); // Adjust tick line width
 
-    const yAxisGroup = svg.append('g').call(d3.axisLeft(yScale).tickSize(6)); // Add ticks with size
+    const yAxisGroup = svg.append('g').call(axisLeft(yScale).tickSize(6)); // Add ticks with size
 
     // Remove the main domain line from Y-axis
     yAxisGroup.selectAll('.domain').remove();
