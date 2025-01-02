@@ -28,6 +28,7 @@ module.exports = override((config) => {
         test: /\.js(\?.*)?$/i,
         terserOptions: {
           compress: {
+            unused: true,
             drop_console: true,
             drop_debugger: true,
           },
@@ -38,6 +39,7 @@ module.exports = override((config) => {
         extractComments: false,
       })
     );
+    config.optimization.usedExports = true;
   }
 
   // Add CSS minimization with CssMinimizerPlugin
@@ -73,6 +75,11 @@ module.exports = override((config) => {
           chunks: 'all', // Include both async and non-async modules
           priority: 10, // Vendor chunk has higher priority
         },
+        react: {
+          test: /[\\/]node_modules[\\/](react|react-dom)/,
+          name: 'react',
+          chunks: 'all',
+        },
         common: {
           name: 'common', // Common chunk for shared dependencies
           minChunks: 2, // Shared between 2 chunks
@@ -88,6 +95,7 @@ module.exports = override((config) => {
     new HtmlWebpackPlugin({
       ...config.plugins[0].options, // Retain default options
       inject: true,
+      scriptLoading: 'defer',
       preload: [
         {
           rel: 'preload',

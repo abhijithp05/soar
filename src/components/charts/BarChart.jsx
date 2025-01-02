@@ -1,5 +1,8 @@
 import React, { useEffect, useRef } from 'react';
-import * as d3 from 'd3';
+import { select } from 'd3-selection';
+import { scaleBand, scaleLinear } from 'd3-scale';
+import { axisBottom, axisLeft } from 'd3-axis';
+import { max } from 'd3-array';
 
 const BarChart = () => {
   // Sample data: Withdrawals and Deposits for each weekday
@@ -20,21 +23,18 @@ const BarChart = () => {
   const svgRef = useRef();
 
   useEffect(() => {
-    const svg = d3
-      .select(svgRef.current)
+    const svg = select(svgRef.current)
       .attr('width', width)
       .attr('height', height);
 
     // Set up scales for X and Y axes
-    const xScale = d3
-      .scaleBand()
+    const xScale = scaleBand()
       .domain(data.map((d) => d.weekday))
       .range([margin.left, width - margin.right])
       .padding(0.4); // Set padding between bars
 
-    const yScale = d3
-      .scaleLinear()
-      .domain([0, d3.max(data, (d) => Math.max(d.deposit, d.withdrawal))])
+    const yScale = scaleLinear()
+      .domain([0, max(data, (d) => Math.max(d.deposit, d.withdrawal))])
       .nice()
       .range([height - margin.bottom, margin.top]);
 
@@ -72,7 +72,7 @@ const BarChart = () => {
     const xAxisGroup = svg
       .append('g')
       .attr('transform', `translate(0, ${height - margin.bottom})`)
-      .call(d3.axisBottom(xScale).tickSize(0)); // Remove ticks
+      .call(axisBottom(xScale).tickSize(0)); // Remove ticks
 
     // Remove the domain line for X-axis
     xAxisGroup.selectAll('.domain').remove(); // Remove the main line for the X-axis
@@ -87,7 +87,7 @@ const BarChart = () => {
     const yAxisGroup = svg
       .append('g')
       .attr('transform', `translate(${margin.left}, 0)`)
-      .call(d3.axisLeft(yScale).tickSize(0)); // Remove ticks
+      .call(axisLeft(yScale).tickSize(0)); // Remove ticks
 
     // Remove the domain line for Y-axis
     yAxisGroup.selectAll('.domain').remove(); // Remove the main line for the Y-axis

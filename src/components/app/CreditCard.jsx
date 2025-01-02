@@ -1,10 +1,10 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import CardChipIcon from 'assets/icons/card-chip.webp';
 import CardChipBlackIcon from 'assets/icons/card-chip-black.webp';
 import CardSymbolIcon from 'assets/icons/card-symbol.webp';
 import Icon from 'components/ui/Icon';
 import { formatCardNumber } from 'utility/formatter/formatCardNumber';
-import PropTypes from 'prop-types';
 
 const CreditCard = ({ cardDetails, isDarkMode }) => {
   return (
