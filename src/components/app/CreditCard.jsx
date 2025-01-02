@@ -1,7 +1,7 @@
 import React from 'react';
-import { ReactComponent as CardChipIcon } from 'assets/icons/card-chip.svg';
-import { ReactComponent as CardChipBlackIcon } from 'assets/icons/card-chip-black.svg';
-import { ReactComponent as CardSymbolIcon } from 'assets/icons/card-symbol.svg';
+import CardChipIcon from 'assets/icons/card-chip.webp';
+import CardChipBlackIcon from 'assets/icons/card-chip-black.webp';
+import CardSymbolIcon from 'assets/icons/card-symbol.webp';
 import Icon from 'components/ui/Icon';
 import { formatCardNumber } from 'utility/formatter/formatCardNumber';
 import PropTypes from 'prop-types';
@@ -27,9 +27,9 @@ const CreditCard = ({ cardDetails, isDarkMode }) => {
           </p>
         </div>
         <Icon
-          icon={isDarkMode ? CardChipIcon : CardChipBlackIcon}
-          width={30}
-          height={30}
+          src={isDarkMode ? CardChipIcon : CardChipBlackIcon}
+          width="34px"
+          height="34px"
         />
       </div>
       <div className="flex flex-row w-4/5 justify-between p-7 text-left">
@@ -66,7 +66,7 @@ const CreditCard = ({ cardDetails, isDarkMode }) => {
         >
           {formatCardNumber(cardDetails.cardNumber)}
         </div>
-        <Icon icon={CardSymbolIcon} width={44} height={30} />
+        <Icon src={CardSymbolIcon} width="44px" height="30px" />
       </div>
     </div>
   );

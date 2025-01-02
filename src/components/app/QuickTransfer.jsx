@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { Button, Input } from 'components/ui';
-import { ReactComponent as SendIcon } from 'assets/icons/send.svg';
-import { ReactComponent as NextIcon } from 'assets/icons/next.svg';
-import { ReactComponent as PreviousIcon } from 'assets/icons/previous.svg';
+import SendIcon from 'assets/icons/send.webp';
+import NextIcon from 'assets/icons/next.webp';
+import PreviousIcon from 'assets/icons/previous.webp';
 import Icon from 'components/ui/Icon';
 
 const QuickTransfer = ({ userDetails }) => {
@@ -41,7 +41,7 @@ const QuickTransfer = ({ userDetails }) => {
             aria-label="Previous"
           >
             <Icon
-              icon={PreviousIcon}
+              src={PreviousIcon}
               width="25px"
               height="25px"
               alt="Previous"
@@ -68,7 +68,7 @@ const QuickTransfer = ({ userDetails }) => {
           className="flex justify-center items-center btn btn-next"
           aria-label="Next"
         >
-          <Icon icon={NextIcon} width="50px" height="50px" alt="Next" />
+          <Icon src={NextIcon} width="50px" height="50px" alt="Next" />
         </Button>
       </div>
 
@@ -93,7 +93,7 @@ const QuickTransfer = ({ userDetails }) => {
           aria-label="Send"
         >
           Send
-          <Icon icon={SendIcon} />
+          <Icon src={SendIcon} width="25px" height="22px" />
         </Button>
       </div>
     </div>
