@@ -7,15 +7,8 @@ const webpack = require('webpack');
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
-const WebpackBundleAnalyzer =
-  require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 module.exports = override((config) => {
-  // Enable Webpack Bundle Analyzer in production builds
-  if (process.env.NODE_ENV === 'production') {
-    config.plugins.push(new WebpackBundleAnalyzer());
-  }
-
   addWebpackModuleRule({
     test: /\.(webp)$/i, // Regex for .webp extension
     use: [
