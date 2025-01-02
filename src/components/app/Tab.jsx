@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ReactComponent as AvatarIcon } from 'assets/icons/avatar.svg';
+import AvatarIcon from 'assets/icons/avatar.webp';
 import { initialSettings } from 'constants/mockData';
 import Icon from 'components/ui/Icon';
 import { Button, Input } from 'components/ui';
@@ -69,12 +69,7 @@ const Tab = () => {
         className="p-2 mt-4 flex flex-col w-[95%] justify-self-center h-[90%] justify-between gap-4 min-h-[100%]"
       >
         <div className="flex flex-col items-center lg:items-start lg:flex-row w-full gap-4 lg:h-[90%]">
-          <Icon
-            icon={AvatarIcon}
-            height="90px"
-            width="90px"
-            alt="User Avatar"
-          />
+          <Icon src={AvatarIcon} height="90px" width="90px" alt="User Avatar" />
 
           <div className="flex flex-col gap-5 h-full lg:h-60 w-full items-center">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">

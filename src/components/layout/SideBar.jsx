@@ -1,5 +1,5 @@
 import React, { useState, useCallback } from 'react';
-import { ReactComponent as SoarIcon } from 'assets/icons/soar.svg';
+import SoarIcon from 'assets/icons/soar.webp';
 import Icon from '../ui/Icon';
 import { useAppContext } from 'context/AppContext';
 import { sideBarConstants } from 'constants/appConstants';
@@ -30,7 +30,7 @@ const SideBar = () => {
     <SideNavContainer role="navigation" aria-label="Main Navigation">
       <nav>
         <div className="flex flex-row items-center mb-10">
-          <Icon icon={SoarIcon} className="w-9 h-9" alt="Soar Task Logo" />
+          <Icon src={SoarIcon} className="w-9 h-9" alt="Soar Task Logo" />
           <StyledLink
             to="/dashboard"
             className="font-inter font-extrabold text-2xl leading-8 text-black-100"
@@ -42,9 +42,13 @@ const SideBar = () => {
           {Object.entries(sideBarConstants).map(([key, value]) => (
             <li key={key} className="flex flex-row items-center ml-2">
               <Icon
-                icon={value.icon}
+                src={selected === value.label ? value.selectedIcon : value.icon}
                 className="w-6 h-6"
                 color={selected === value.label ? '#000' : '#B1B1B1'}
+                style={{
+                  filter: 'hue-rotate(90deg) brightness(1.2)',
+                  transition: 'filter 0.3s ease',
+                }}
                 alt={`${value.label} Icon`}
               />
               <StyledLink
