@@ -1,9 +1,9 @@
 import React from 'react';
-import { ReactComponent as SearchIcon } from 'assets/icons/magnifying-glass.svg';
-import { ReactComponent as NotificationIcon } from 'assets/icons/notification.svg';
-import { ReactComponent as SettingIcon } from 'assets/icons/setting-nav.svg';
-import { ReactComponent as AvatarIcon } from 'assets/icons/avatar.svg';
-import { ReactComponent as HamburgerIcon } from 'assets/icons/hamburger.svg';
+import SearchIcon from 'assets/icons/magnifying-glass.webp';
+import NotificationIcon from 'assets/icons/notification.webp';
+import SettingIcon from 'assets/icons/setting-nav.webp';
+import avatar from 'assets/icons/avatar.webp';
+import HamburgerIcon from 'assets/icons/hamburger.webp';
 import { Input, Button } from '../ui';
 import { TopNavContainer } from '../styles/StyledContainers';
 import { useAppContext } from 'context/AppContext';
@@ -37,19 +37,24 @@ const TopNav = () => {
               height="14px"
               width="18px"
               onClick={handleHamburgerIconClick}
-              icon={HamburgerIcon}
+              src={HamburgerIcon}
             />
           </div>
           {pageName}
           {windowWidth < 1024 && (
             <Button className="p-2 " aria-label="User Profile">
-              <AvatarIcon alt="User Avatar" />
+              <Icon height="45px" width="45px" src={avatar} />
             </Button>
           )}
         </div>
-        <div className="flex items-center space-x-4 lg:mr-4">
+        <div className="flex items-center justify-center space-x-4 w-full lg:w-auto lg:mr-4">
           <div className="flex items-center  border-gray-300 bg-light-gray rounded-full p-2 max-w-xs w-full ">
-            <SearchIcon className="mr-2 ml-2 " />
+            <Icon
+              height="20px"
+              width="20px"
+              src={SearchIcon}
+              className="mr-2 ml-2 "
+            />
             <Input
               type="text"
               placeholder="Search"
@@ -63,17 +68,27 @@ const TopNav = () => {
             aria-label="Settings"
             onClick={handleSettingIconClick}
           >
-            <SettingIcon alt="Setting Icon" />
+            <Icon
+              src={SettingIcon}
+              alt="User Avatar"
+              height="56px"
+              width="56px"
+            />
           </Button>
           <Button
             className="p-2 rounded  hidden lg:flex"
             aria-label="Notifications"
           >
-            <NotificationIcon alt="Notification Icon" />
+            <Icon
+              src={NotificationIcon}
+              alt="User Avatar"
+              height="56px"
+              width="56px"
+            />
           </Button>
           {windowWidth >= 1024 && (
             <Button className="p-2 rounded" aria-label="User Profile">
-              <AvatarIcon alt="User Avatar" />
+              <Icon src={avatar} alt="User Avatar" height="56px" width="56px" />
             </Button>
           )}
         </div>

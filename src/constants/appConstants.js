@@ -1,12 +1,14 @@
-import { ReactComponent as DashboardIcon } from 'assets/icons/dashboard.svg';
-import { ReactComponent as TransactionIcon } from 'assets/icons/transaction.svg';
-import { ReactComponent as AccountIcon } from 'assets/icons/accounts.svg';
-import { ReactComponent as InvestmentIcon } from 'assets/icons/investment.svg';
-import { ReactComponent as CreditCardIcon } from 'assets/icons/credit-card.svg';
-import { ReactComponent as LoanIcon } from 'assets/icons/loans.svg';
-import { ReactComponent as ServiceIcon } from 'assets/icons/services.svg';
-import { ReactComponent as PriviledgeIcon } from 'assets/icons/priviledge.svg';
-import { ReactComponent as SettingIcon } from 'assets/icons/settings.svg';
+import DashboardIcon from 'assets/icons/dashboard.webp';
+import SelectedDashboardIcon from 'assets/icons/selected-dashboard.webp';
+import TransactionIcon from 'assets/icons/transaction.webp';
+import AccountIcon from 'assets/icons/accounts.webp';
+import InvestmentIcon from 'assets/icons/investment.webp';
+import CreditCardIcon from 'assets/icons/credit-card.webp';
+import LoanIcon from 'assets/icons/loans.webp';
+import ServiceIcon from 'assets/icons/services.webp';
+import PriviledgeIcon from 'assets/icons/priviledge.webp';
+import SettingIcon from 'assets/icons/settings.webp';
+import SelectedSettingIcon from 'assets/icons/selected-setting.webp';
 
 export const sideBarConstants = {
   dashboard: {
@@ -15,6 +17,7 @@ export const sideBarConstants = {
     title: 'Overview',
     disabled: false,
     icon: DashboardIcon,
+    selectedIcon: SelectedDashboardIcon,
   },
   transactions: {
     label: 'Transactions',
@@ -65,6 +68,7 @@ export const sideBarConstants = {
     title: 'Setting',
     disabled: false,
     icon: SettingIcon,
+    selectedIcon: SelectedSettingIcon,
   },
 };
 

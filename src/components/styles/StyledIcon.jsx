@@ -7,7 +7,7 @@ export const StyledIcon = styled.svg`
 
   // Apply styles to the child <path> element(s)
   & path {
-    fill: ${(props) => props.fill || ''};
+    fill: ${(props) => props?.fill || ''};
 
     transition:
       fill 0.2s ease,

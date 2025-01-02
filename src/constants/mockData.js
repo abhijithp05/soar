@@ -1,10 +1,10 @@
 import Icon from 'components/ui/Icon';
-import { ReactComponent as DepositIcon } from 'assets/icons/deposit.svg';
-import { ReactComponent as WithdrawalIcon } from 'assets/icons/withdrawal.svg';
-import { ReactComponent as PaypalIcon } from 'assets/icons/paypal.svg';
-import { ReactComponent as Person1Icon } from 'assets/icons/person-1.svg';
-import { ReactComponent as Person2Icon } from 'assets/icons/person-2.svg';
-import { ReactComponent as Person3Icon } from 'assets/icons/person-3.svg';
+import DepositIcon from 'assets/icons/deposit.webp';
+import WithdrawalIcon from 'assets/icons/withdrawal.webp';
+import PaypalIcon from 'assets/icons/paypal.webp';
+import Person1Icon from 'assets/icons/person-1.webp';
+import Person2Icon from 'assets/icons/person-2.webp';
+import Person3Icon from 'assets/icons/person-3.webp';
 
 export const cardDetails = [
   {
@@ -172,16 +172,16 @@ export const transactions = [
 
 export const transactionTypes = {
   Purchase: {
-    icon: <Icon icon={PaypalIcon} width={50} height={50} />,
+    icon: <Icon src={PaypalIcon} width="50px" height="50px" />,
   },
   Withdrawal: {
-    icon: <Icon icon={WithdrawalIcon} width={50} height={50} />,
+    icon: <Icon src={WithdrawalIcon} width="50px" height="50px" />,
   },
   Deposit: {
-    icon: <Icon icon={DepositIcon} width={50} height={50} />,
+    icon: <Icon src={DepositIcon} width="50px" height="50px" />,
   },
   Subscription: {
-    icon: <Icon icon={WithdrawalIcon} width={50} height={50} />,
+    icon: <Icon src={WithdrawalIcon} width="50px" height="50px" />,
   },
 };
 
@@ -191,49 +191,49 @@ export const quickTransferUsers = [
     accountNumber: 1234567890,
     position: 'CEO',
     bank: 'XYZ Bank',
-    profileImage: <Icon icon={Person1Icon} width={70} height={70} />,
+    profileImage: <Icon src={Person1Icon} width="70px" height="70px" />,
   },
   {
     name: 'Sophia Williams',
     accountNumber: 2345678901,
     position: 'Designer',
     bank: 'ABC Bank',
-    profileImage: <Icon icon={Person2Icon} width={70} height={70} />,
+    profileImage: <Icon src={Person2Icon} width="70px" height="70px" />,
   },
   {
     name: 'Michael Harris',
     accountNumber: 3456789012,
     position: 'Developer',
     bank: 'PQR Bank',
-    profileImage: <Icon icon={Person3Icon} width={70} height={70} />,
+    profileImage: <Icon src={Person3Icon} width="70px" height="70px" />,
   },
   {
     name: 'Maria Johnson',
     accountNumber: 4567890123,
     position: 'Developer',
     bank: 'LMN Bank',
-    profileImage: <Icon icon={Person3Icon} width={70} height={70} />,
+    profileImage: <Icon src={Person3Icon} width="70px" height="70px" />,
   },
   {
     name: 'James T. Kirk',
     accountNumber: 5678901234,
     position: 'Developer',
     bank: 'JKL Bank',
-    profileImage: <Icon icon={Person3Icon} width={70} height={70} />,
+    profileImage: <Icon src={Person3Icon} width="70px" height="70px" />,
   },
   {
     name: 'Lina Sanderson',
     accountNumber: 6789012345,
     position: 'Developer',
     bank: 'RST Bank',
-    profileImage: <Icon icon={Person3Icon} width={70} height={70} />,
+    profileImage: <Icon src={Person3Icon} width="70px" height="70px" />,
   },
   {
     name: 'Alexis Mendoza',
     accountNumber: 7890123456,
     position: 'Developer',
     bank: 'EFG Bank',
-    profileImage: <Icon icon={Person3Icon} width={70} height={70} />,
+    profileImage: <Icon src={Person3Icon} width="70px" height="70px" />,
   },
 ];
 
